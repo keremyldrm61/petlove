@@ -1,0 +1,9 @@
+:root {
+    --font-family: "Manrope", sans-serif;
+    --primary-color: #f6b83d;
+    --primary-light: #fff4df;
+    --dark-color: #262626;
+    --white-color: #fff;
+    --error-color: #ef2447;
+    --bg-color: #f9f9f9;
+}
