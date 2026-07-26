@@ -9,13 +9,26 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
-import storage from "redux-persist/lib/storage";
 import { authReducer } from "./auth/authSlice";
+
+const customStorage = {
+  getItem: (key: string) => {
+    return Promise.resolve(localStorage.getItem(key));
+  },
+  setItem: (key: string, value: string) => {
+    localStorage.setItem(key, value);
+    return Promise.resolve();
+  },
+  removeItem: (key: string) => {
+    localStorage.removeItem(key);
+    return Promise.resolve();
+  },
+};
 
 // Auth state'i için sadece token'ı localStorage'e kaydediyoruz
 const authPersistConfig = {
   key: "auth",
-  storage,
+  storage: customStorage,
   whitelist: ["token"],
 };
 
