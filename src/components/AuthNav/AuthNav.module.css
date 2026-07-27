@@ -1,0 +1,26 @@
+.authNav {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.loginBtn, .registerBtn {
+    font-weight: 700;
+    font-size: 14px;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    text-transform: uppercase;
+    border-radius: 30px;
+    padding: 12px 40px;
+    transition: 0.3s ease;
+}
+
+.loginBtn {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.registerBtn {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+}

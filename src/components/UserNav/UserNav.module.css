@@ -1,0 +1,14 @@
+.userNav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logoutBtn {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+    padding: 12px 24px;
+    border-radius: 30px;
+    font-weight: 700;
+    text-transform: uppercase;
+}

@@ -1,72 +1,166 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
-import { register, login, logout, refreshUser } from "./authOperations";
-import type { User } from "../../types";
+import {
+  register,
+  logIn,
+  logOut,
+  refreshUser,
+  editUser,
+  addPet,
+  removePet,
+} from "./authOperations";
+import type { User, Pet, Notice, AuthResponse } from "../../types";
 
-interface AuthState {
-  user: User | null;
+// Başlangıçta user verileri null olabileceği için User tipini Omit ile esnetiyoruz
+export interface AuthUser {
+  _id: string | null;
+  name: string | null;
+  email: string | null;
+  avatar: string | null;
+  phone: string | null;
+}
+
+export interface AuthState {
+  user: AuthUser;
   token: string | null;
   isLoggedIn: boolean;
   isRefreshing: boolean;
   isLoading: boolean;
-  error: string | null;
+  pets: Pet[];
+  noticesViewed: Notice[];
+  noticesFavorites: Notice[];
 }
 
 const initialState: AuthState = {
-  user: null,
+  user: { _id: null, name: null, email: null, phone: null, avatar: null },
   token: null,
   isLoggedIn: false,
   isRefreshing: false,
   isLoading: false,
-  error: null,
+  pets: [],
+  noticesViewed: [],
+  noticesFavorites: [],
 };
 
-const authSlice = createSlice({
+export const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {},
   extraReducers: (builder) => {
     builder
-      // Register
-      .addCase(register.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
-        state.isLoading = false;
-        state.error = null;
+      // REGISTER
+      .addCase(register.pending, (state) => {
+        state.isLoading = true;
       })
-      // Login
-      .addCase(login.fulfilled, (state, action) => {
-        state.user = action.payload.user;
-        state.token = action.payload.token;
-        state.isLoggedIn = true;
+      .addCase(
+        register.fulfilled,
+        (state, { payload }: PayloadAction<AuthResponse>) => {
+          state.user._id = payload.user._id;
+          state.user.name = payload.user.name;
+          state.user.email = payload.user.email;
+          state.token = payload.token;
+          state.isLoggedIn = true;
+          state.isLoading = false;
+        },
+      )
+      .addCase(register.rejected, (state) => {
         state.isLoading = false;
-        state.error = null;
       })
-      // Logout
-      .addCase(logout.fulfilled, (state) => {
-        state.user = null;
+
+      // LOGIN
+      .addCase(logIn.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(
+        logIn.fulfilled,
+        (state, { payload }: PayloadAction<AuthResponse>) => {
+          state.user._id = payload.user._id;
+          state.user.name = payload.user.name;
+          state.user.email = payload.user.email;
+          state.token = payload.token;
+          state.isLoggedIn = true;
+          state.isLoading = false;
+        },
+      )
+      .addCase(logIn.rejected, (state) => {
+        state.isLoading = false;
+      })
+
+      // LOGOUT
+      .addCase(logOut.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(logOut.fulfilled, (state) => {
+        state.user = {
+          _id: null,
+          name: null,
+          email: null,
+          phone: null,
+          avatar: null,
+        };
         state.token = null;
         state.isLoggedIn = false;
+        state.isLoading = false;
+        state.noticesFavorites = [];
+        state.noticesViewed = [];
+        state.pets = [];
       })
-      .addCase(logout.rejected, (state) => {
-        state.user = null;
-        state.token = null;
-        state.isLoggedIn = false;
+      .addCase(logOut.rejected, (state) => {
+        state.isLoading = false;
       })
-      // Refresh User
+
+      // REFRESH USER
       .addCase(refreshUser.pending, (state) => {
         state.isRefreshing = true;
       })
-      .addCase(refreshUser.fulfilled, (state, action: PayloadAction<User>) => {
-        state.user = action.payload;
-        state.isLoggedIn = true;
-        state.isRefreshing = false;
-      })
+      .addCase(
+        refreshUser.fulfilled,
+        (state, { payload }: PayloadAction<User>) => {
+          state.user._id = payload._id;
+          state.user.name = payload.name;
+          state.user.email = payload.email;
+          state.user.phone = payload.phone || null;
+          state.user.avatar = payload.avatar || null;
+          state.noticesFavorites = payload.noticesFavorites || [];
+          state.noticesViewed = payload.noticesViewed || [];
+          state.pets = payload.pets || [];
+          state.isLoggedIn = true;
+          state.isRefreshing = false;
+        },
+      )
       .addCase(refreshUser.rejected, (state) => {
         state.isRefreshing = false;
-        state.token = null;
-        state.isLoggedIn = false;
-      });
+      })
+
+      // EDIT USER
+      .addCase(editUser.pending, (state) => {
+        state.isLoading = true;
+        state.isRefreshing = true;
+      })
+      .addCase(
+        editUser.fulfilled,
+        (state, { payload }: PayloadAction<User>) => {
+          state.user.name = payload.name;
+          state.user.email = payload.email;
+          state.user.phone = payload.phone || null;
+          state.user.avatar = payload.avatar || null;
+          state.isLoading = false;
+          state.isRefreshing = false;
+        },
+      )
+
+      // PETS (Yanıtın { pets: Pet[] } şeklinde döndüğünü varsayıyoruz)
+      .addCase(
+        addPet.fulfilled,
+        (state, { payload }: PayloadAction<{ pets: Pet[] }>) => {
+          state.pets = payload.pets;
+        },
+      )
+      .addCase(
+        removePet.fulfilled,
+        (state, { payload }: PayloadAction<{ pets: Pet[] }>) => {
+          state.pets = payload.pets;
+        },
+      );
   },
 });
 

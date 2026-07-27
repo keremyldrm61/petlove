@@ -1,0 +1,13 @@
+.logo {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    display: flex;
+    align-items: center;
+}
+
+@media screen and (min-width: 768px) {
+    .logo {
+        font-size: 28px;
+    }
+}

@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosError, type InternalAxiosRequestConfig } from "axios";
 
 const BASE_URL = import.meta.env.VITE_API_BASE_URL;
 
@@ -21,14 +21,14 @@ export const clearAuthHeader = (): void => {
 
 // Request Interceptor: Her istekte localStorage içinde token varsa header'a ekle
 petloveApi.interceptors.request.use(
-  (config) => {
+  (config: InternalAxiosRequestConfig) => {
     const token = localStorage.getItem("token");
     if (token && config.headers) {
       config.headers.Authorization = `Bearer ${token}`;
     }
     return config;
   },
-  (error) => {
+  (error: AxiosError) => {
     return Promise.reject(error);
   },
 );
@@ -36,9 +36,9 @@ petloveApi.interceptors.request.use(
 // Response Interceptor: Global Hata Yakalama (401 Unauthorized)
 petloveApi.interceptors.response.use(
   (response) => response,
-  (error) => {
+  (error: AxiosError) => {
     if (error.response && error.response.status === 401) {
-      // Oturum geçersiz olduğunda veya süresi dolduğunda token'ı temizle
+      // Oturum geçersiz olduğunda veya süresi dolduğunda token'ı ve header'ı temizle
       clearAuthHeader();
       localStorage.removeItem("token");
     }

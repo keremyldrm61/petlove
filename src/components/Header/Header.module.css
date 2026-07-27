@@ -1,0 +1,16 @@
+.header {
+    padding: 20px 0;
+    background-color: var(--bg-color);
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}

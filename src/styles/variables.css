@@ -6,4 +6,5 @@
     --white-color: #fff;
     --error-color: #ef2447;
     --bg-color: #f9f9f9;
+    --transition-normal: 0.3s ease;
 }

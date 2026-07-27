@@ -9,6 +9,10 @@ import {
   PURGE,
   REGISTER,
 } from "redux-persist";
+
+import { newsReducer } from "./news/newsSlice";
+import { friendsReducer } from "./friends/friendsSlice";
+import { noticesReducer } from "./notices/noticesSlice";
 import { authReducer } from "./auth/authSlice";
 
 const customStorage = {
@@ -32,10 +36,14 @@ const authPersistConfig = {
   whitelist: ["token"],
 };
 
+const persistedAuthReducer = persistReducer(authPersistConfig, authReducer);
+
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
-    // İleride eklenecek diğer reducer'lar: notices, pets vb.
+    news: newsReducer,
+    friends: friendsReducer,
+    notices: noticesReducer,
+    auth: persistedAuthReducer,
   },
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
