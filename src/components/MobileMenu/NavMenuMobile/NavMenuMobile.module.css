@@ -1,0 +1,57 @@
+.navMenuList {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 10px;
+  width: 100%;
+}
+
+.navLink {
+  width: 119px;
+  height: 48px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  transition: var(--hover-general);
+}
+
+/* isHomepage === true durumu */
+.linkHomepage {
+  color: var(--dark-color);
+  border: 1px solid var(--link-gray);
+}
+
+/* isHomepage === false durumu */
+.linkDefault {
+  color: var(--white-color);
+  border: 1px solid var(--white-light);
+}
+
+/* -- Aktif (Seçili) Rota Stilleri -- */
+
+/* Anasayfada menü açıksa aktif link stili */
+.activeHomepage {
+  border: 1px solid var(--accent-color);
+  color: var(--accent-color);
+}
+
+/* Diğer sayfalarda menü açıksa aktif link stili */
+.activeDefault {
+  border: 1px solid var(--white-color);
+  color: var(--white-color);
+}
+
+/* Masaüstü ekranlarda yan yana dizilim */
+@media screen and (min-width: 1280px) {
+  .navMenuList {
+    flex-direction: row;
+    column-gap: 10px;
+  }
+}

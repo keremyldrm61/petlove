@@ -1,23 +1,24 @@
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { useAppDispatch } from "./redux/hooks";
+import { useAuth } from "./hooks/useAuth";
+import { refreshUser } from "./redux/auth/authOperations";
+import FallbackLoader from "./components/UI/FallbackLoader/FallbackLoader";
 import { AppRouter } from "./router/AppRouter";
 import { Toaster } from "react-hot-toast";
-import { refreshUser } from "./redux/auth/authOperations";
 
 function App() {
   const dispatch = useAppDispatch();
-  const isRefreshing = useAppSelector((state) => state.auth.isRefreshing);
 
-  // Uygulama yüklendiğinde kullanıcı oturumunu kontrol et
+  // Direct Redux state okumak yerine hazırladığımız custom hook'u kullanıyoruz
+  const { isRefreshing } = useAuth();
+
+  // Uygulama ilk açıldığında oturumu doğrula
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
 
-  // Token kontrol edilirken beyaz ekran yerine Loader göster
   if (isRefreshing) {
-    return (
-      <div>Oturum kontrol ediliyor... (Buraya Loader componenti gelecek)</div>
-    );
+    return <FallbackLoader />;
   }
 
   return (

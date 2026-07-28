@@ -1,0 +1,11 @@
+.heroImage {
+  border-radius: 30px;
+  display: block;
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .heroImage {
+    border-radius: 60px;
+  }
+}

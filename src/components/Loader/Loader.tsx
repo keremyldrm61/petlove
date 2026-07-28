@@ -21,7 +21,7 @@ const Loader = () => {
   }, []);
 
   return (
-    <div>
+    <div className={css.container}>
       <picture>
         <source media="(min-width: 768px)" srcSet={loaderTabletAndDesktopImg} />
         <img
@@ -30,7 +30,7 @@ const Loader = () => {
           className={css.image}
         />
       </picture>
-      <span className={css.percentage}>{progress}</span>
+      <span className={css.percentage}>{progress}%</span>
     </div>
   );
 };

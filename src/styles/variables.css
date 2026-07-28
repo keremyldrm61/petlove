@@ -1,10 +1,22 @@
 :root {
-    --font-family: "Manrope", sans-serif;
-    --primary-color: #f6b83d;
-    --primary-light: #fff4df;
-    --dark-color: #262626;
-    --white-color: #fff;
-    --error-color: #ef2447;
-    --bg-color: #f9f9f9;
-    --transition-normal: 0.3s ease;
+  --font-family: "Manrope", sans-serif;
+  --bg-color: #f9f9f9;
+  --dark-color: #262626;
+  --dark-light: #2b2b2a;
+  --accent-color: #f6b83d;
+  --hover-accent-color: #f9b020;
+  --white-color: #ffffff;
+  --accent-light: #fff4df;
+  --hover-color: #fbe7c1;
+  --title-accent: rgba(255, 255, 255, 0.4);
+  --white-light: rgba(255, 255, 255, 0.15);
+  --link-gray: rgba(38, 38, 38, 0.15);
+  --placeholder-color: rgba(38, 38, 38, 0.5);
+  --text-input: rgba(38, 38, 38, 0.8);
+  --bg-button: rgba(38, 38, 38, 0.05);
+  --subtitle-color: rgba(43, 43, 42, 0.4);
+  --pets-cards: rgba(38, 38, 38, 0.1);
+  --error-color: #ef2447;
+  --success-color: #08aa83;
+  --hover-general: all 0.3s ease;
 }

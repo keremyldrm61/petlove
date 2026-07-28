@@ -1,15 +1,21 @@
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import css from "./AuthNav.module.css";
 
-const AuthNav = () => {
+interface Props {
+  setIsShowMobileMenu?: (val: boolean) => void;
+}
+
+const AuthNav = ({ setIsShowMobileMenu }: Props) => {
+  const handleClick = () => setIsShowMobileMenu && setIsShowMobileMenu(false);
+
   return (
-    <div className={css.authNav}>
-      <NavLink to="/login" className={css.loginBtn}>
+    <div className={css.buttonsContainer}>
+      <Link to="/login" className={css.loginBtn} onClick={handleClick}>
         Log In
-      </NavLink>
-      <NavLink to="/register" className={css.registerBtn}>
+      </Link>
+      <Link to="/register" className={css.registerBtn} onClick={handleClick}>
         Registration
-      </NavLink>
+      </Link>
     </div>
   );
 };

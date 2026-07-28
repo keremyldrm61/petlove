@@ -1,0 +1,63 @@
+.userLinkBtn {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  min-width: 40px;
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent-light);
+  border-radius: 50%;
+  transition: var(--hover-general);
+}
+
+.userLinkBtn img {
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.userLinkBtn svg {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  stroke-width: 2px;
+}
+
+.userLinkBtn:hover {
+  background-color: var(--hover-color);
+}
+
+.userName {
+  display: none;
+  /* Mobilde gizli */
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+}
+
+.userNameHomepage {
+  color: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .userLinkBtn {
+    width: 50px;
+    height: 50px;
+    min-height: 50px;
+    min-width: 50px;
+  }
+
+  .userLinkBtn svg {
+    width: 24px;
+    height: 24px;
+  }
+
+  .userName {
+    display: block;
+    /* Tablet ve üstünde görünür */
+  }
+}

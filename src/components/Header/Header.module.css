@@ -1,16 +1,101 @@
-.header {
-    padding: 20px 0;
-    background-color: var(--bg-color);
+.mainHeader {
+  padding: 10px 20px 0 20px;
+  max-width: 375px;
+  margin: 0 auto;
 }
 
-.container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.headerContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0px 22px 0px;
+  background-color: transparent;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
 }
 
-.actions {
+.containerHomepage {
+  padding: 24px 20px 22px 20px;
+  background-color: var(--accent-color);
+}
+
+.blockBtns {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+/* --- JS'den Kurtarılan Responsive Mantıkları --- */
+
+/* NavMenu sadece Masaüstünde (>=1280px) */
+.desktopNavWrapper {
+  display: none;
+}
+
+/* AuthNav Görünüm Kuralları */
+.authNavWrapper {
+  display: none;
+  /* Mobilde gizli */
+}
+
+/* LogoutHeader Kuralları */
+.logoutNavWrapper {
+  display: none;
+  /* Mobilde gizli */
+}
+
+@media screen and (min-width: 768px) {
+  .mainHeader {
+    max-width: 768px;
+    padding: 10px 32px 0 32px;
+  }
+
+  .headerContainer {
+    border-top-left-radius: 60px;
+    border-top-right-radius: 60px;
+    padding: 27px 0px 62px 0px;
+  }
+
+  .containerHomepage {
+    padding: 27px 32px 62px 32px;
+  }
+
+  /* Tablet ve Üstü: AuthNav göster, ama anasayfaysa gizle (Sadece masaüstüne bırak) */
+  .authNavWrapper {
     display: flex;
-    align-items: center;
-    gap: 16px;
+  }
+
+  .authNavWrapper.authHomepage {
+    display: none;
+  }
+
+  /* Tablet ve Üstü: LogoutHeader göster */
+  .logoutNavWrapper {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainHeader {
+    max-width: 1280px;
+  }
+
+  .headerContainer {
+    padding: 27px 32px 32px 32px;
+  }
+
+  .containerHomepage {
+    padding: 27px 64px 32px 64px;
+  }
+
+  .desktopNavWrapper {
+    display: block;
+  }
+
+  /* Masaüstünde anasayfa olsa da olmasa da AuthNav gösterilir */
+  .authNavWrapper,
+  .authNavWrapper.authHomepage {
+    display: flex;
+  }
 }

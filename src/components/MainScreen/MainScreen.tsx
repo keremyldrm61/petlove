@@ -29,8 +29,8 @@ const MainScreen = () => {
           <Icon
             id="icon-logo-main"
             className={css.logo}
-            width={109}
-            height={32}
+            width={190}
+            height={50}
           />
         )}
       </div>

@@ -1,26 +1,66 @@
-.authNav {
-    display: flex;
-    align-items: center;
-    gap: 8px;
+.buttonsContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
 }
 
-.loginBtn, .registerBtn {
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 1.25;
-    letter-spacing: -0.03em;
-    text-transform: uppercase;
-    border-radius: 30px;
-    padding: 12px 40px;
-    transition: 0.3s ease;
+.loginBtn,
+.registerBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  width: 178px;
+  height: 42px;
+  text-transform: uppercase;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  transition: var(--hover-general);
+  text-decoration: none;
 }
 
 .loginBtn {
-    background-color: var(--primary-color);
-    color: var(--white-color);
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: 1px solid var(--white-color);
+}
+
+.loginBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
 }
 
 .registerBtn {
-    background-color: var(--primary-light);
-    color: var(--primary-color);
+  color: var(--accent-color);
+  background-color: var(--accent-light);
+  border: none;
+}
+
+.registerBtn:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .buttonsContainer {
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .loginBtn,
+  .registerBtn {
+    font-size: 16px;
+    line-height: 1.25;
+    height: 50px;
+  }
+
+  .loginBtn {
+    width: 119px;
+  }
+
+  .registerBtn {
+    width: 149px;
+  }
 }

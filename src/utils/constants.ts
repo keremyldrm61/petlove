@@ -1,5 +1,5 @@
-import dogModalImg from "../../assets/images/modals/dogmodal.webp";
-import catModalImg from "../../assets/images/modals/catmodal.webp";
+import dogModalImg from "../assets/images/modals/dog-modal.webp";
+import catModalImg from "../assets/images/modals/cat-modal.webp";
 
 export interface AuthModalMessage {
   imgUrl: string;

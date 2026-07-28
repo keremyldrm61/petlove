@@ -1,0 +1,99 @@
+.imgContainer {
+  width: calc(100dvw - 40px);
+  max-width: 295px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.imgWrapper {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.imgWrapper img {
+  width: 44px;
+  height: 44px;
+}
+
+.title {
+  font-weight: 700;
+  font-size: 20px;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  margin-top: 20px;
+}
+
+.btnsBox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  margin-top: 28px;
+}
+
+.logoutConfirmBtn,
+.cancelBtn {
+  outline: none;
+  border: none;
+  width: 137px;
+  height: 42px;
+  border-radius: 30px;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  transition: var(--hover-general);
+  cursor: pointer;
+}
+
+.logoutConfirmBtn {
+  color: var(--white-color);
+  background-color: var(--accent-color);
+}
+
+.logoutConfirmBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.cancelBtn {
+  color: var(--dark-color);
+  background-color: var(--bg-button);
+}
+
+.cancelBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .imgContainer {
+    max-width: 288px;
+    height: 204px;
+    padding-top: 40px;
+  }
+
+  .title {
+    font-size: 24px;
+    line-height: 1.17;
+  }
+
+  .btnsBox {
+    margin-top: 0px;
+    margin-bottom: 40px;
+  }
+
+  .logoutConfirmBtn,
+  .cancelBtn {
+    width: 140px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

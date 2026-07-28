@@ -1,5 +1,5 @@
 import { Navigate } from "react-router-dom";
-import { useAppSelector } from "../redux/hooks";
+import { useAuth } from "../hooks/useAuth";
 
 interface PrivateRouteProps {
   component: React.ReactElement;
@@ -7,14 +7,12 @@ interface PrivateRouteProps {
 }
 
 export const PrivateRoute = ({
-  component: Component,
+  component,
   redirectTo = "/login",
 }: PrivateRouteProps) => {
-  const isLoggedIn = useAppSelector((state) => state.auth.isLoggedIn);
-  const isRefreshing = useAppSelector((state) => state.auth.isRefreshing);
+  const { isLoggedIn, isRefreshing } = useAuth();
 
-  // Kullanıcı giriş yapmamışsa ve token yenilenmiyorsa yönlendir
   const shouldRedirect = !isLoggedIn && !isRefreshing;
 
-  return shouldRedirect ? <Navigate to={redirectTo} replace /> : Component;
+  return shouldRedirect ? <Navigate to={redirectTo} replace /> : component;
 };

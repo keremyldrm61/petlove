@@ -1,0 +1,31 @@
+.mobileMenuContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.closeBtn {
+  width: 36px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  margin-left: auto;
+  margin-top: -10px;
+  cursor: pointer;
+}
+
+.iconHomepage {
+  stroke: var(--dark-color);
+}
+
+.iconDefault {
+  stroke: var(--white-color);
+}
