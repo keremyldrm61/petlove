@@ -9,7 +9,9 @@ const HomePage = lazy(() => import("../pages/HomePage/HomePage"));
 const NewsPage = lazy(() => import("../pages/NewsPage/NewsPage"));
 const NoticesPage = lazy(() => import("../pages/NoticesPage/NoticesPage"));
 const FriendsPage = lazy(() => import("../pages/FriendsPage/FriendsPage"));
-const RegisterPage = lazy(() => import("../pages/RegisterPage/RegisterPage"));
+const RegistrationPage = lazy(
+  () => import("../pages/RegistrationPage/RegistrationPage"),
+);
 const LoginPage = lazy(() => import("../pages/LoginPage/LoginPage"));
 const ProfilePage = lazy(() => import("../pages/ProfilePage/ProfilePage"));
 const AddPetPage = lazy(() => import("../pages/AddPetPage/AddPetPage"));
@@ -38,7 +40,7 @@ export const AppRouter = () => {
           element={
             <RestrictedRoute
               redirectTo="/profile"
-              component={<RegisterPage />}
+              component={<RegistrationPage />}
             />
           }
         />

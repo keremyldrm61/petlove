@@ -1,9 +1,16 @@
-const LoginPage = () => {
+import LoginImage from "../../components/Login/LoginImage/LoginImage";
+import LoginForm from "../../components/Login/LoginForm/LoginForm";
+import css from "./LoginPage.module.css";
+
+const Login = () => {
   return (
-    <>
-      <div>Login Page</div>
-    </>
+    <section className={css.loginPageSection}>
+      <div className={css.desktopWrapper}>
+        <LoginImage />
+        <LoginForm />
+      </div>
+    </section>
   );
 };
 
-export default LoginPage;
+export default Login;

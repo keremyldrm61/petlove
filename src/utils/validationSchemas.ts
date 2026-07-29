@@ -5,7 +5,7 @@ const emailRegExp = /^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/;
 const urlRegExp = /^https?:\/\/.*\.(?:png|jpg|jpeg|gif|bmp|webp)$/;
 const phoneRegExp = /^\+38\d{10}$/;
 
-export const registerSchema = yup.object().shape({
+export const registrationSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   email: yup
     .string()
@@ -33,7 +33,7 @@ export const loginSchema = yup.object().shape({
 });
 
 // Profil güncelleme şeması
-export const schema = yup.object().shape({
+export const profileSchema = yup.object().shape({
   name: yup.string().required("Name is required"),
   email: yup
     .string()
@@ -65,7 +65,7 @@ export const addPetSchema = yup.object().shape({
   sex: yup.string().required("Sex is required"),
 });
 
-export type RegisterFormValues = yup.InferType<typeof registerSchema>;
+export type RegistrationFormValues = yup.InferType<typeof registrationSchema>;
 export type LoginFormValues = yup.InferType<typeof loginSchema>;
-export type ProfileFormValues = yup.InferType<typeof schema>;
+export type ProfileFormValues = yup.InferType<typeof profileSchema>;
 export type AddPetFormValues = yup.InferType<typeof addPetSchema>;

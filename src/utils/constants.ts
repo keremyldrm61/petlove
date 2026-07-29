@@ -16,7 +16,7 @@ export const LoginMessage: AuthModalMessage = {
     "Rich would be the perfect addition to an active family that loves to play and go on walks. I bet he would love having a doggy playmate too!",
 };
 
-export const RegisterMessage: AuthModalMessage = {
+export const RegistrationMessage: AuthModalMessage = {
   imgUrl: catModalImg,
   name: "Jack",
   birthday: "18.10.2021",

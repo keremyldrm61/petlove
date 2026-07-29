@@ -1,4 +1,4 @@
-.loginPageSection {
+.registrationPageSection {
   position: relative;
   padding: 0 20px;
   max-width: 375px;
@@ -6,14 +6,14 @@
 }
 
 @media screen and (min-width: 768px) {
-  .loginPageSection {
+  .registrationPageSection {
     max-width: 768px;
     padding: 0 32px;
   }
 }
 
 @media screen and (min-width: 1280px) {
-  .loginPageSection {
+  .registrationPageSection {
     max-width: 1280px;
   }
 

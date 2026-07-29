@@ -1,0 +1,258 @@
+.formContainer {
+  margin-top: 10px;
+  padding: 20px;
+  background-color: var(--white-color);
+  border-radius: 30px;
+}
+
+.formTitleBox {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 12px;
+  color: var(--dark-color);
+  margin-bottom: 20px;
+}
+
+.title {
+  font-size: 28px;
+  letter-spacing: -0.04em;
+  font-weight: 700;
+}
+
+.subtitle {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 10px;
+}
+
+.label {
+  width: 100%;
+  position: relative;
+}
+
+.field {
+  width: 100%;
+  height: 42px;
+  padding: 12px;
+  border: 1px solid var(--link-gray);
+  border-radius: 30px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--text-input);
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.field:focus {
+    border-color: var(--accent-color);
+}
+
+.field::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--placeholder-color);
+}
+
+.fieldError {
+  border-color: red;
+}
+
+.fieldSuccess {
+  border-color: var(--success-color);
+}
+
+.iconCheck,
+.iconCheckPassword,
+.showPasswordBtn {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iconCheck {
+  top: 12px;
+  right: 12px;
+}
+
+.iconCheckPassword {
+  top: 12px;
+  right: 44px;
+}
+
+.showPasswordBtn {
+  width: 32px;
+  height: 32px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  top: 6px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.iconCheck svg,
+.iconCheckPassword svg,
+.showPasswordBtn svg {
+  width: 18px;
+  height: 18px;
+}
+
+.errorMessage {
+  color: var(--error-color);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: capitalize;
+  display: block;
+  margin-top: 4px;
+  padding-left: 12px;
+}
+
+.passwordSecure {
+  color: var(--success-color);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  display: block;
+  margin-top: 4px;
+  padding-left: 12px;
+}
+
+.submitBtn {
+  width: 100%;
+  height: 42px;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  text-transform: uppercase;
+  color: var(--white-color);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 14px;
+  transition: var(--hover-general);
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.textHaveAccount {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.03em;
+  color: var(--placeholder-color);
+}
+
+.textHaveAccount a {
+  color: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .formContainer {
+    margin-top: 16px;
+    border-radius: 60px;
+    padding: 27px 140px;
+  }
+
+  .formTitleBox {
+    row-gap: 16px;
+    margin-bottom: 32px;
+  }
+
+  .title {
+    font-size: 54px;
+  }
+
+  .subtitle {
+    font-size: 18px;
+    line-height: 1.22;
+  }
+
+  .form {
+    row-gap: 16px;
+  }
+
+  .field {
+    height: 52px;
+    padding: 16px;
+    font-size: 16px;
+  }
+
+  .field::placeholder {
+    font-size: 16px;
+  }
+
+  .iconCheck {
+    top: 14px;
+    right: 16px;
+  }
+
+  .iconCheckPassword {
+    top: 14px;
+    right: 54px;
+  }
+
+  .showPasswordBtn {
+    width: 36px;
+    height: 36px;
+  }
+
+  .iconCheck svg,
+  .iconCheckPassword svg,
+  .showPasswordBtn svg {
+    width: 22px;
+    height: 22px;
+  }
+
+  .errorMessage,
+  .passwordSecure {
+    font-size: 12px;
+    line-height: 1.17;
+  }
+
+  .submitBtn {
+    height: 52px;
+    font-size: 16px;
+    line-height: 1.25;
+    margin-top: 24px;
+  }
+
+  .textHaveAccount {
+    font-size: 14px;
+    line-height: 1.43;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .formContainer {
+    margin-top: 0;
+    width: 592px;
+    height: 654px;
+    padding: 77px 82px;
+  }
+}

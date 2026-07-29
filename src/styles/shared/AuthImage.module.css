@@ -1,0 +1,89 @@
+.authImageContainer {
+  position: relative;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.pictureWrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.heroImage {
+  display: block;
+}
+
+/* -- ORTAK SVG STİLLERİ -- */
+.bgSvgMobileTablet,
+.bgSvgDesktop {
+  position: absolute;
+  z-index: 0;
+}
+
+/* -- MOBİL GÖRÜNÜM (Varsayılan) -- */
+.bgSvgMobileTablet {
+  display: block;
+  bottom: 45px;
+  left: 0;
+  transform: scale(1.6);
+}
+
+.bgSvgDesktop {
+  display: none;
+  /* Mobilde masaüstü ikonunu gizle */
+}
+
+.messageWrapper {
+  display: none;
+  /* Mobilde mesaj kutusunu gizle */
+}
+
+/* -- TABLET GÖRÜNÜM (768px ve üzeri) -- */
+@media screen and (min-width: 768px) {
+  .authImageContainer {
+    border-radius: 60px;
+  }
+
+  .pictureWrapper {
+    right: -250px;
+  }
+
+  .bgSvgMobileTablet {
+    transform: scale(2.8);
+    bottom: -24px;
+    left: 224px;
+  }
+
+  .messageWrapper {
+    display: block;
+    /* Tablette mesaj kutusunu göster */
+  }
+}
+
+/* -- MASAÜSTÜ GÖRÜNÜM (1280px ve üzeri) -- */
+@media screen and (min-width: 1280px) {
+  .authImageContainer {
+    width: 592px;
+    height: 654px;
+  }
+
+  .pictureWrapper {
+    right: unset;
+    left: 40px;
+    bottom: -22px;
+  }
+
+  .bgSvgMobileTablet {
+    display: none;
+    /* Masaüstünde mobil/tablet ikonunu gizle */
+  }
+
+  .bgSvgDesktop {
+    display: block;
+    /* Masaüstünde Desktop ikonunu göster */
+    transform: scale(4);
+    top: 278px;
+    left: 134px;
+  }
+}

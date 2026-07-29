@@ -26,8 +26,6 @@
   column-gap: 8px;
 }
 
-/* --- JS'den Kurtarılan Responsive Mantıkları --- */
-
 /* NavMenu sadece Masaüstünde (>=1280px) */
 .desktopNavWrapper {
   display: none;
