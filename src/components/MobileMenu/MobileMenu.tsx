@@ -1,6 +1,8 @@
+import { useAuth } from "../../hooks/useAuth";
 import Modal from "../Modal/Modal";
 import NavMenuMobile from "./NavMenuMobile/NavMenuMobile";
 import AuthNav from "../AuthNav/AuthNav";
+import LogoutHeader from "../Header/LogoutHeader/LogoutHeader";
 import { Icon } from "../../shared/Icon";
 import css from "./MobileMenu.module.css";
 
@@ -10,6 +12,8 @@ interface Props {
 }
 
 const MobileMenu = ({ setIsShowMobileMenu, isHomepage }: Props) => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <Modal setIsShowMobileMenu={setIsShowMobileMenu}>
       <div className={css.mobileMenuContainer}>
@@ -29,7 +33,12 @@ const MobileMenu = ({ setIsShowMobileMenu, isHomepage }: Props) => {
           isHomepage={isHomepage}
           setIsShowMobileMenu={setIsShowMobileMenu}
         />
-        <AuthNav setIsShowMobileMenu={setIsShowMobileMenu} />
+        {/* Koşullu Render: Kullanıcı giriş yaptıysa LogoutHeader, yapmadıysa AuthNav componentini göster */}
+        {isLoggedIn ? (
+          <LogoutHeader />
+        ) : (
+          <AuthNav setIsShowMobileMenu={setIsShowMobileMenu} />
+        )}
       </div>
     </Modal>
   );

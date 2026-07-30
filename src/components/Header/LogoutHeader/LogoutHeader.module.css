@@ -4,8 +4,8 @@
   border-radius: 30px;
   outline: none;
   border: none;
-  background-color: var(--accent-color);
-  color: var(--white-color);
+  background-color: var(--white-color);
+  color: var(--accent-color);
   text-transform: uppercase;
   font-weight: 700;
   font-size: 14px;
@@ -17,6 +17,19 @@
 
 .logoutButton:hover {
   background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .logoutButton {
+    border: 1px solid var(--white-color);
+    background-color: var(--accent-color);
+    color: var(--white-color);
+  }
+
+  .logoutButton:hover {
+    background-color: var(--hover-accent-color);
+    color: var(--white-color);
+  }
 }
 
 @media screen and (min-width: 1280px) {
