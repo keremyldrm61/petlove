@@ -25,14 +25,24 @@ export const register = createAsyncThunk<AuthResponse, RegisterPayload>(
       );
       setAuthHeader(res.data.token);
       localStorage.setItem("token", res.data.token);
-      toast.success(`Welcome ${res.data.user.name}`);
-      return res.data;
+
+      // Veri yapısını emniyete alıyoruz (Payload Normalization)
+      const user = res.data.user || {
+        _id: (res.data as unknown as { _id?: string })._id || null,
+        name: (res.data as unknown as { name?: string }).name || "User",
+        email: (res.data as unknown as { email?: string }).email || "",
+      };
+      toast.success(`Welcome ${user.name}`);
+      return {
+        token: res.data.token,
+        user,
+      };
     } catch (error) {
       const err = error as AxiosError<{ message?: string }>;
-      toast.error("ERROR, Invalid data");
-      return thunkAPI.rejectWithValue(
-        err.response?.data?.message || err.message,
-      );
+      const errorMessage =
+        err.response?.data?.message || err.message || "Registration failed";
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
     }
   },
 );
@@ -48,14 +58,24 @@ export const logIn = createAsyncThunk<AuthResponse, LoginPayload>(
       );
       setAuthHeader(res.data.token);
       localStorage.setItem("token", res.data.token);
-      toast.success(`Welcome ${res.data.user.name}`);
-      return res.data;
+
+      // Güvenli veri okuma: res.data.user yoksa üst seviye objeden okur
+      const user = res.data.user || {
+        _id: (res.data as unknown as { _id?: string })._id || null,
+        name: (res.data as unknown as { name?: string }).name || "User",
+        email: (res.data as unknown as { email?: string }).email || "",
+      };
+      toast.success(`Welcome ${user.name}`);
+      return {
+        token: res.data.token,
+        user,
+      };
     } catch (error) {
       const err = error as AxiosError<{ message?: string }>;
-      toast.error("ERROR, Invalid data");
-      return thunkAPI.rejectWithValue(
-        err.response?.data?.message || err.message,
-      );
+      const errorMessage =
+        err.response?.data?.message || err.message || "Login failed";
+      toast.error(errorMessage);
+      return thunkAPI.rejectWithValue(errorMessage);
     }
   },
 );
