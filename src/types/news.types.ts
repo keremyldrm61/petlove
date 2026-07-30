@@ -1,5 +1,5 @@
 // Haberler için uygun veri tipleri
-export interface NewsItem {
+export interface NewsItemType {
   _id: string;
   imgUrl: string;
   title: string;

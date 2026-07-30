@@ -2,9 +2,7 @@ interface FallbackLoaderProps {
   minHeight?: string;
 }
 
-export const FallbackLoader = ({
-  minHeight = "100vh",
-}: FallbackLoaderProps) => {
+const FallbackLoader = ({ minHeight = "100vh" }: FallbackLoaderProps) => {
   return (
     <div
       style={{

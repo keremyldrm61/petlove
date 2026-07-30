@@ -2,7 +2,7 @@ import LoginImage from "../../components/Login/LoginImage/LoginImage";
 import LoginForm from "../../components/Login/LoginForm/LoginForm";
 import css from "./LoginPage.module.css";
 
-const Login = () => {
+const LoginPage = () => {
   return (
     <section className={css.loginPageSection}>
       <div className={css.desktopWrapper}>
@@ -13,4 +13,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;
