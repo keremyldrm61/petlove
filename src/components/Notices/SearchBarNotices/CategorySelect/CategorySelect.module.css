@@ -1,0 +1,25 @@
+.wrapper {
+  --select-width: 143px;
+  --select-height: 42px;
+  --select-font-size: 14px;
+  --select-line-height: 1.29;
+  --option-font-size: 14px;
+  --menu-width: 143px;
+}
+
+@media screen and (min-width: 768px) {
+  .wrapper {
+    --select-width: 170px;
+    --select-height: 48px;
+    --select-font-size: 16px;
+    --select-line-height: 1.25;
+    --option-font-size: 18px;
+    --menu-width: 170px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .wrapper {
+    --select-width: 200px;
+  }
+}

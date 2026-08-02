@@ -2,18 +2,15 @@
 
 export interface Notice {
   _id: string;
-  species: string;
-  category: string;
-  price?: number;
-  sex: "male" | "female" | "multiple";
-  title: string;
+  imgURL: string;
   name: string;
+  title: string;
   birthday: string;
-  comment?: string;
-  imgUrl: string;
-  location?: string;
+  sex: string;
+  species: string;
   popularity: number;
-  user?: string;
+  comment: string;
+  category: string;
 }
 
 export interface NoticeFiltersParams {

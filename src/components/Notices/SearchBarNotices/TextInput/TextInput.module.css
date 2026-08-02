@@ -1,0 +1,93 @@
+.searchForm {
+  position: relative;
+  margin-top: 20px;
+}
+
+.searchForm input {
+  width: 100%;
+  height: 42px;
+  padding: 12px;
+  border-radius: 30px;
+  border: 1px solid transparent;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.searchForm input:focus-within,
+.searchForm input:hover {
+  border-color: var(--accent-color);
+}
+
+.searchForm input::placeholder {
+  color: var(--dark-color);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+}
+
+.submitSearchBtn {
+  width: 32px;
+  height: 32px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 6px;
+  right: 12px;
+  cursor: pointer;
+}
+
+.submitSearchBtn svg {
+  fill: var(--white-color);
+  stroke: var(--dark-color);
+  transition: var(--hover-general);
+}
+
+.cancelSearchBtn {
+  width: 32px;
+  height: 32px;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  top: 6px;
+  right: 42px;
+  cursor: pointer;
+}
+
+.cancelSearchBtn svg {
+  stroke: var(--placeholder-color);
+  transition: var(--hover-general);
+}
+
+.cancelSearchBtn:hover svg {
+  transform: scale(1.2);
+}
+
+@media screen and (min-width: 768px) {
+  .searchForm {
+    margin-top: 0;
+    width: 265px;
+  }
+
+  .searchForm input {
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .searchForm input::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .submitSearchBtn {
+    top: 10px;
+  }
+
+  .cancelSearchBtn {
+    top: 10px;
+  }
+}

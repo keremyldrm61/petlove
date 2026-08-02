@@ -1,0 +1,5 @@
+.searchIcon {
+  fill: var(--white-color);
+  stroke: var(--dark-color);
+  margin-right: 10px;
+}

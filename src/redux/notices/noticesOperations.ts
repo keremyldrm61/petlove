@@ -59,11 +59,13 @@ export const fetchSpecies = createAsyncThunk<string[], void>(
 );
 
 // GET CITIES LOCATIONS FOR SELECT
-export const fetchCities = createAsyncThunk<CityLocation[], void>(
+export const fetchCities = createAsyncThunk<CityLocation[], string>(
   "cities/fetchAll",
-  async (_, thunkAPI) => {
+  async (keyword, thunkAPI) => {
     try {
-      const response = await petloveApi.get<CityLocation[]>("/cities");
+      const response = await petloveApi.get<CityLocation[]>(
+        `cities?keyword=${keyword}`,
+      );
       return response.data;
     } catch (error) {
       const err = error as AxiosError<{ message?: string }>;

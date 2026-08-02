@@ -23,7 +23,7 @@ const NewsPage = () => {
   }, [currentPage, dispatch, searchValue]);
 
   return (
-    <section className={css.homePageSection}>
+    <section className={css.newsPageSection}>
       <div className={css.boxTitle}>
         <h1 className={css.titleOfPage}>News</h1>
         <SearchBar

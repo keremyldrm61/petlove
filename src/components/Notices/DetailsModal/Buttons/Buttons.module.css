@@ -1,0 +1,75 @@
+.buttonsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  margin-top: 40px;
+}
+
+.contactBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 135px;
+  height: 44px;
+  border-radius: 30px;
+  background-color: var(--accent-light);
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  color: var(--accent-color);
+  transition: var(--hover-general);
+  text-decoration: none;
+}
+
+.contactBtn:hover {
+  background-color: var(--hover-color);
+}
+
+.addRemoveBtn {
+  outline: none;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.03em;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  width: 135px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 10px;
+  border-radius: 30px;
+  transition: var(--hover-general);
+  cursor: pointer;
+}
+
+.addRemoveBtn svg {
+  fill: none;
+  stroke: var(--white-color);
+  transition: var(--hover-general);
+}
+
+.addRemoveBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.addRemoveBtn:hover svg {
+  stroke: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .contactBtn {
+    width: 160px;
+    height: 48px;
+  }
+
+  .addRemoveBtn {
+    width: 160px;
+    height: 48px;
+  }
+}
