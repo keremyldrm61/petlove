@@ -1,0 +1,47 @@
+.friendsPageSection {
+  position: relative;
+  padding: 0 20px;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.titleOfPage {
+  font-weight: 700;
+  font-size: 28px;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  animation: appearRight 1000ms ease 1;
+}
+
+@keyframes appearRight {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .friendsPageSection {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .titleOfPage {
+    font-size: 54px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .friendsPageSection {
+    max-width: 1280px;
+  }
+
+  .titleOfPage {
+    padding-left: 32px;
+  }
+}

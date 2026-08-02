@@ -1,19 +1,18 @@
 // Partnerler için uygun veri tipleri
 export interface WorkDay {
-  _id: string;
   isOpen: boolean;
-  from?: string;
-  to?: string;
+  from: string;
+  to: string;
 }
 
-export interface FriendItem {
+export interface FriendType {
   _id: string;
+  address: string | null;
+  addressUrl: string | null;
+  email: string | null;
+  imageUrl: string;
+  phone: string | null;
   title: string;
   url: string;
-  addressUrl?: string;
-  imageUrl: string;
-  address?: string;
-  workDays?: WorkDay[];
-  phone?: string;
-  email?: string;
+  workDays: WorkDay[] | null;
 }

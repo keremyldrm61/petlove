@@ -1,8 +1,4 @@
-export interface WorkDay {
-  isOpen?: boolean;
-  from?: string;
-  to?: string;
-}
+import type { WorkDay } from "../types";
 
 export const formatBirthday = (
   birthday?: string | number | Date | null,
@@ -57,7 +53,7 @@ export const noScroll = (isShowMobileMenu: boolean): (() => void) => {
   };
 };
 
-export const workHours = (workDays?: WorkDay[]): string | undefined => {
+export const workHours = (workDays?: WorkDay[] | null): string | undefined => {
   // Gelen veri bir dizi değilse veya boşsa güvenli çıkış
   if (!Array.isArray(workDays) || workDays.length === 0) {
     return undefined;

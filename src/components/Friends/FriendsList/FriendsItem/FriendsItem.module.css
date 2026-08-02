@@ -1,0 +1,128 @@
+.cardContainer {
+  background-color: var(--white-color);
+  border-radius: 15px;
+  padding: 40px 20px;
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  column-gap: 14px;
+}
+
+.workHoursBadge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  border-radius: 30px;
+  width: 90px;
+  height: 32px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  color: var(--accent-color);
+  background-color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoCompany {
+  display: block;
+  width: 80px;
+  height: 80px;
+  flex-shrink: 0;
+}
+
+.logoCompany img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.infoCompany {
+  color: var(--dark-color);
+}
+
+.infoCompany h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  margin: 0;
+}
+
+.listDetails {
+  margin-top: 14px;
+  width: 194px;
+  padding: 0;
+  list-style: none;
+}
+
+.listDetails li {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  column-gap: 2px;
+}
+
+.listDetails li:not(:last-of-type) {
+  margin-bottom: 8px;
+}
+
+.listDetails p {
+  color: var(--placeholder-color);
+  margin: 0;
+}
+
+.infoLink {
+  color: var(--dark-color);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow-x: hidden;
+  transition: var(
+    --hover-general,
+    color 250ms ease,
+    text-decoration 250ms ease
+  );
+  text-decoration: none;
+}
+
+.infoLink:hover,
+.infoLink:focus {
+  color: var(--accent-color);
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 768px) {
+  .cardContainer {
+    column-gap: 16px;
+  }
+
+  .workHoursBadge {
+    font-size: 14px;
+    line-height: 1.29;
+    width: 102px;
+    height: 34px;
+  }
+
+  .logoCompany {
+    width: 90px;
+    height: 90px;
+  }
+
+  .infoCompany h2 {
+    font-size: 20px;
+    line-height: 1.3;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cardContainer {
+    width: 371px;
+    height: 196px;
+  }
+}
