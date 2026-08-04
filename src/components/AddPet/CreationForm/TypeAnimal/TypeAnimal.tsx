@@ -1,4 +1,3 @@
-import React from "react";
 import Select, { type SingleValue } from "react-select";
 import { useNotices } from "../../../../hooks/useNotices";
 import css from "./TypeAnimal.module.css";
@@ -13,7 +12,7 @@ interface SpeciesOption {
   label: string;
 }
 
-const TypeAnimal: React.FC<TypeAnimalProps> = ({ petType, setPetType }) => {
+const TypeAnimal = ({ petType, setPetType }: TypeAnimalProps) => {
   const { species } = useNotices() as { species: string[] };
 
   const speciesData: SpeciesOption[] = species

@@ -1,0 +1,56 @@
+.containerContent {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+}
+
+.iconBox svg {
+  width: 74px;
+  height: 120px;
+}
+
+.catImgBox {
+  width: 109px;
+  height: 109px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.catImgBox picture {
+  object-fit: cover;
+}
+
+@media screen and (min-width: 768px) {
+  .iconBox svg {
+    width: 175px;
+    height: 300px;
+  }
+
+  .catImgBox {
+    width: 280px;
+    height: 280px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .iconBox svg {
+    width: 185px;
+  }
+
+  .catImgBox {
+    width: 300px;
+    height: 300px;
+  }
+
+  .catImgBox picture {
+    object-position: -20px;
+  }
+
+  .catImgBox picture img {
+    width: 300px;
+    height: 300px;
+  }
+}
