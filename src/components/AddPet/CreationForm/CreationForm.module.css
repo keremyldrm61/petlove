@@ -1,0 +1,263 @@
+.inputPetImage {
+  max-width: 161px;
+  width: 100%;
+  height: 42px;
+  outline: none;
+  border-radius: 30px;
+  border: 1px solid var(--link-gray);
+  padding: 12px;
+  transition: var(--hover-general);
+}
+
+.inputPetImage::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--placeholder-color);
+}
+
+.inputPetImage:focus-within,
+.inputPetImage:hover {
+  border: 1px solid var(--accent-color);
+}
+
+.inputNormal {
+  width: 100%;
+  height: 42px;
+  outline: none;
+  border-radius: 30px;
+  border: 1px solid var(--link-gray);
+  padding: 12px;
+  transition: var(--hover-general);
+}
+
+.inputNormal::placeholder {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  color: var(--placeholder-color);
+}
+
+.inputNormal:focus-within,
+.inputNormal:hover {
+  border: 1px solid var(--accent-color);
+}
+
+.invisibleInput {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+}
+
+.uploadContainer {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 8px;
+  margin-top: 16px;
+  margin-bottom: 10px;
+}
+
+.boxContainer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+}
+
+.submitBtn {
+  border: none;
+  outline: none;
+  border-radius: 30px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  text-transform: capitalize;
+  width: 100px;
+  height: 42px;
+  transition: var(--hover-general);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 30px;
+  background-color: rgba(84, 173, 255, 0.1);
+  color: var(--dark-color);
+  text-transform: capitalize;
+  width: 100px;
+  height: 42px;
+  transition: var(--hover-general);
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.backBtn:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.buttonsBox {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  column-gap: 8px;
+  margin-top: 31px;
+}
+
+.errorMsg {
+  color: var(--error-color);
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  text-transform: capitalize;
+}
+
+.inputBox {
+  margin-bottom: 10px;
+}
+
+.label {
+  position: relative;
+}
+
+.label svg {
+  position: absolute;
+  top: 0px;
+  right: 18px;
+  pointer-events: none;
+}
+
+.addAvatarInput {
+  max-width: 126px;
+}
+
+.addAvatarInput::-webkit-file-upload-button {
+  opacity: 0;
+  visibility: hidden;
+  width: 1px !important;
+}
+
+.addAvatarInput::before {
+  content: "Upload photo";
+  width: 112px;
+  height: 42px;
+  border-radius: 30px;
+  background-color: var(--accent-light);
+  color: var(--dark-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  cursor: pointer;
+  padding-left: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  position: absolute;
+  top: -44%;
+  left: 0%;
+  transition: var(--hover-general);
+}
+
+.addAvatarInput:hover::before {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .inputPetImage {
+    max-width: 278px;
+    width: 278px;
+  }
+
+  .inputNormal {
+    height: 52px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .inputNormal::placeholder {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .uploadContainer {
+    justify-content: flex-start;
+    margin-top: 12px;
+    margin-bottom: 18px;
+  }
+
+  .boxContainer {
+    column-gap: 12px;
+  }
+
+  .submitBtn {
+    width: 170px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .backBtn {
+    width: 170px;
+    height: 48px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .buttonsBox {
+    margin-top: 40px;
+  }
+
+  .errorMsg {
+    font-size: 12px;
+    line-height: 1.17;
+  }
+
+  .inputBox {
+    margin-bottom: 18px;
+  }
+
+  .label svg {
+    right: 0px;
+  }
+
+  .addAvatarInput::before {
+    width: 122px;
+    font-size: 14px;
+    line-height: 1.29;
+    padding-left: 18px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .inputPetImage {
+    max-width: 100%;
+  }
+}

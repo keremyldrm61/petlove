@@ -1,0 +1,62 @@
+.addPetPageSection {
+  position: relative;
+  padding: 0 20px;
+  max-width: 375px;
+  margin: 0 auto;
+}
+
+.desktopBox {
+  width: 100%;
+}
+
+.containerCreation {
+  background-color: var(--white-color);
+  border-radius: 30px;
+  padding: 28px 20px;
+  margin-top: 10px;
+  animation: appearLeft 1000ms ease 1;
+}
+
+@keyframes appearLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .addPetPageSection {
+    max-width: 768px;
+    padding: 0 32px;
+  }
+
+  .containerCreation {
+    border-radius: 60px;
+    margin-top: 16px;
+    padding: 40px 136px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .addPetPageSection {
+    max-width: 1280px;
+  }
+
+  .desktopBox {
+    display: flex;
+    align-items: flex-start;
+    column-gap: 32px;
+  }
+
+  .containerCreation {
+    margin-top: 0px;
+    width: 592px;
+    height: 654px;
+    padding: 60px 80px;
+  }
+}

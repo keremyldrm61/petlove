@@ -1,0 +1,32 @@
+.mainTitle {
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  margin-bottom: 24px;
+}
+
+.mainTitle span {
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--subtitle-color);
+}
+
+@media screen and (min-width: 768px) {
+  .mainTitle {
+    font-size: 32px;
+  }
+
+  .mainTitle span {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .mainTitle {
+    margin-bottom: 40px;
+  }
+}

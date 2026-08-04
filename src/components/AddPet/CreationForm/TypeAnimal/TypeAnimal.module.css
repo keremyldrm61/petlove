@@ -1,0 +1,76 @@
+.selectContainer {
+  width: 143px;
+}
+
+.selectContainer :global(.pet-select__control) {
+  border: 1px solid var(--link-gray);
+  height: 40px;
+  background-color: var(--white-color);
+  border-radius: 30px;
+  box-shadow: none;
+  font-size: 14px;
+  outline: none;
+  font-weight: 500;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  font-family: Manrope, sans-serif;
+  cursor: pointer;
+  transition: var(--hover-general);
+}
+
+.selectContainer :global(.pet-select__control:hover),
+.selectContainer :global(.pet-select__control--is-focused) {
+  border-color: var(--accent-color);
+  outline: none;
+  box-shadow: none;
+}
+
+.selectContainer :global(.pet-select__placeholder) {
+  color: var(--placeholder-color);
+}
+
+.selectContainer :global(.pet-select__value-container) {
+  border-radius: 30px;
+  box-shadow: 0 4px 36px 0 rgba(0, 0, 0, 0.02);
+  padding: 0 12px;
+}
+
+.selectContainer :global(.pet-select__menu) {
+  width: 100%;
+  border-radius: 15px;
+  overflow: hidden;
+  z-index: 10;
+}
+
+.selectContainer :global(.pet-select__option) {
+  font-size: 14px;
+  font-weight: 500;
+  font-family: Manrope, sans-serif;
+  line-height: 1.25;
+  background-color: transparent;
+  cursor: pointer;
+  color: var(--placeholder-color);
+  transition: var(--hover-general);
+}
+
+.selectContainer :global(.pet-select__option--is-focused) {
+  color: var(--accent-color);
+  background-color: rgba(84, 173, 255, 0.1);
+}
+
+@media screen and (min-width: 768px) {
+  .selectContainer {
+    width: 210px;
+  }
+
+  .selectContainer :global(.pet-select__control) {
+    height: 52px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .selectContainer :global(.pet-select__option) {
+    font-size: 16px;
+  }
+}

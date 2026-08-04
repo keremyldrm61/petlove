@@ -1,0 +1,86 @@
+.listItems {
+  display: flex;
+  align-items: center;
+  column-gap: 8px;
+}
+
+.listItem {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--hover-general);
+  background-color: transparent;
+}
+
+.listItem svg {
+  fill: none;
+  transition: var(--hover-general);
+}
+
+/* Female Button */
+.female {
+  background-color: rgba(244, 63, 94, 0.1);
+}
+
+.female svg {
+  stroke: #f43f5e;
+}
+
+.female:hover,
+.female.active {
+  background-color: #f43f5e;
+}
+
+.female:hover svg,
+.female.active svg {
+  stroke: var(--white-color);
+}
+
+/* Male Button */
+.male {
+  background-color: rgba(84, 173, 255, 0.1);
+}
+
+.male svg {
+  stroke: #54adff;
+}
+
+.male:hover,
+.male.active {
+  background-color: #54adff;
+}
+
+.male:hover svg,
+.male.active svg {
+  stroke: var(--white-color);
+}
+
+/* Multiple Button */
+.multiple {
+  background-color: var(--accent-light);
+}
+
+.multiple svg {
+  fill: var(--accent-color);
+}
+
+.multiple:hover,
+.multiple.active {
+  background-color: var(--accent-color);
+}
+
+.multiple:hover svg,
+.multiple.active svg {
+  fill: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .listItem {
+    width: 40px;
+    height: 40px;
+  }
+}

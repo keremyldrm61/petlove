@@ -1,9 +1,9 @@
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../../../redux/store";
 import type { PetType } from "../../../../../types";
-import PetInfo from "../ProfilePetInfo/ProfilePetInfo";
+import ProfilePetInfo from "../ProfilePetInfo/ProfilePetInfo";
 import { removePet } from "../../../../../redux/auth/authOperations";
-import sprite from "../../../../../assets/icons/icons.svg";
+import { Icon } from "../../../../../shared/Icon";
 import css from "./ProfilePetItem.module.css";
 
 interface ProfilePetItemProps {
@@ -25,16 +25,14 @@ const ProfilePetItem = ({ pet }: ProfilePetItemProps) => {
       </div>
       <div className={css.content}>
         <h3>{title}</h3>
-        <PetInfo pet={pet} />
+        <ProfilePetInfo pet={pet} />
       </div>
       <button
         className={css.deletePetBtn}
         type="button"
         onClick={handleDeletePet}
       >
-        <svg width={16} height={16}>
-          <use xlinkHref={`${sprite}#icon-trash`}></use>
-        </svg>
+        <Icon id="icon-trash" width={16} height={16} />
       </button>
     </li>
   );

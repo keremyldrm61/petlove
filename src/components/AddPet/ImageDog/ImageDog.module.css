@@ -1,0 +1,90 @@
+.imageBox {
+  position: relative;
+  background-color: var(--accent-color);
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+.picture {
+  position: relative;
+  z-index: 1;
+}
+
+.dogImage {
+  position: relative;
+  left: 6%;
+  animation: appearDown 1000ms ease 1;
+}
+
+.svgBase {
+  position: absolute;
+  z-index: 0;
+}
+
+/* Mobil için varsayılan SVG görünümü */
+.svgMobileTablet {
+  display: block;
+  bottom: -16px;
+  left: 11px;
+  transform: scale(1.6);
+}
+
+/* PC versiyonundaki SVG varsayılan olarak gizli */
+.svgDesktop {
+  display: none;
+}
+
+@keyframes appearDown {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .imageBox {
+    border-radius: 60px;
+  }
+
+  .dogImage {
+    left: 30%;
+  }
+
+  /* Tablet için SVG konumlandırması */
+  .svgMobileTablet {
+    transform: scale(2.8);
+    bottom: -82px;
+    left: 223px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .imageBox {
+    width: 592px;
+    height: 654px;
+  }
+
+  .picture {
+    right: unset;
+    left: -132px;
+    bottom: -8px;
+  }
+
+  /* Desktop boyutunda PC SVG'sini göster, diğerini gizle */
+  .svgMobileTablet {
+    display: none;
+  }
+
+  .svgDesktop {
+    display: block;
+    transform: scale(4);
+    bottom: unset;
+    top: 278px;
+    left: 134px;
+  }
+}
