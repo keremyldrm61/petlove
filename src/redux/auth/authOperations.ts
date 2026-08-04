@@ -10,8 +10,8 @@ import type {
   UpdateUserPayload,
   User,
   AddPetPayload,
-  Pet,
-  Notice,
+  PetType,
+  NoticeType,
 } from "../../types";
 
 // REGISTER
@@ -146,11 +146,11 @@ export const editUser = createAsyncThunk<User, UpdateUserPayload | FormData>(
 
 // ADD PET
 export const addPet = createAsyncThunk<
-  { pets: Pet[] },
+  { pets: PetType[] },
   AddPetPayload | FormData
 >("auth/addPet", async (petData, thunkAPI) => {
   try {
-    const res = await petloveApi.post<{ pets: Pet[] }>(
+    const res = await petloveApi.post<{ pets: PetType[] }>(
       "/users/current/pets/add",
       petData,
     );
@@ -164,11 +164,11 @@ export const addPet = createAsyncThunk<
 });
 
 // REMOVE PET
-export const removePet = createAsyncThunk<{ pets: Pet[] }, string>(
+export const removePet = createAsyncThunk<{ pets: PetType[] }, string>(
   "auth/removePet",
   async (id, thunkAPI) => {
     try {
-      const res = await petloveApi.delete<{ pets: Pet[] }>(
+      const res = await petloveApi.delete<{ pets: PetType[] }>(
         `/users/current/pets/remove/${id}`,
       );
       toast.success("Pet removed successfully");
@@ -184,11 +184,11 @@ export const removePet = createAsyncThunk<{ pets: Pet[] }, string>(
 );
 
 // VIEWED PET
-export const viewedPet = createAsyncThunk<Notice, string>(
+export const viewedPet = createAsyncThunk<NoticeType, string>(
   "auth/viewedPet",
   async (id, thunkAPI) => {
     try {
-      const res = await petloveApi.get<Notice>(`/notices/${id}`);
+      const res = await petloveApi.get<NoticeType>(`/notices/${id}`);
       return res.data;
     } catch (error) {
       const err = error as AxiosError<{ message?: string }>;

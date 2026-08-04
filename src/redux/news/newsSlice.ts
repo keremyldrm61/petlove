@@ -1,9 +1,9 @@
 import { createSlice, type PayloadAction } from "@reduxjs/toolkit";
 import { fetchNews } from "./newsOperations";
-import type { NewsItem, PaginatedResponse } from "../../types";
+import type { NewsItemType, PaginatedResponse } from "../../types";
 
 export interface NewsState {
-  news: NewsItem[];
+  news: NewsItemType[];
   totalPages: number | null;
   isLoading: boolean;
   isError: boolean;
@@ -28,7 +28,10 @@ export const newsSlice = createSlice({
       })
       .addCase(
         fetchNews.fulfilled,
-        (state, { payload }: PayloadAction<PaginatedResponse<NewsItem>>) => {
+        (
+          state,
+          { payload }: PayloadAction<PaginatedResponse<NewsItemType>>,
+        ) => {
           state.isLoading = false;
           state.isError = false;
           state.news = payload.results;

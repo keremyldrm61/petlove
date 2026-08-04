@@ -15,10 +15,10 @@ interface SearchBarNoticesProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const SearchBarNotices: React.FC<SearchBarNoticesProps> = ({
+const SearchBarNotices = ({
   currentPage,
   setCurrentPage,
-}) => {
+}: SearchBarNoticesProps) => {
   const [radioSearch, setRadioSearch] = useState<RadioOption | null>(null);
   const [categoryQuery, setCategoryQuery] = useState<string | null>(null);
   const [genderQuery, setGenderQuery] = useState<string | null>(null);

@@ -14,11 +14,11 @@ interface OptionType {
   label: string;
 }
 
-const CategorySelect: React.FC<CategorySelectProps> = ({
+const CategorySelect = ({
   setCategoryQuery,
   categoryQuery,
   setCurrentPage,
-}) => {
+}: CategorySelectProps) => {
   const { categories } = useNotices() as { categories?: string[] };
 
   const categoriesData: OptionType[] = [

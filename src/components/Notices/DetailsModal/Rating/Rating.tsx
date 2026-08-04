@@ -1,4 +1,3 @@
-import React from "react";
 import { Icon } from "../../../../shared/Icon";
 import css from "./Rating.module.css";
 
@@ -6,7 +5,7 @@ interface RatingProps {
   popularity: number;
 }
 
-const Rating: React.FC<RatingProps> = ({ popularity }) => {
+const Rating = ({ popularity }: RatingProps) => {
   const maxStars = 5;
   const filledStars = Math.ceil((popularity / 37) * maxStars);
 

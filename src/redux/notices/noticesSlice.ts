@@ -1,4 +1,5 @@
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
+import type { NoticeType } from "../../types";
 import {
   fetchCategories,
   fetchGenders,
@@ -9,10 +10,9 @@ import {
   type CityLocation,
 } from "./noticesOperations";
 import { fetchNotices } from "./noticesFiltration";
-import type { Notice } from "../../types";
 
 export interface NoticesState {
-  notices: Notice[];
+  notices: NoticeType[];
   categories: string[];
   genders: string[];
   species: string[];

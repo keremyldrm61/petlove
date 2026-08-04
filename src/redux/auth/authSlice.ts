@@ -8,9 +8,8 @@ import {
   addPet,
   removePet,
 } from "./authOperations";
-import type { User, Pet, Notice, AuthResponse } from "../../types";
+import type { User, PetType, NoticeType, AuthResponse } from "../../types";
 
-// Başlangıçta user verileri null olabileceği için User tipini Omit ile esnetiyoruz
 export interface AuthUser {
   _id: string | null;
   name: string | null;
@@ -25,9 +24,9 @@ export interface AuthState {
   isLoggedIn: boolean;
   isRefreshing: boolean;
   isLoading: boolean;
-  pets: Pet[];
-  noticesViewed: Notice[];
-  noticesFavorites: Notice[];
+  pets: PetType[];
+  noticesViewed: NoticeType[];
+  noticesFavorites: NoticeType[];
 }
 
 const initialState: AuthState = {
@@ -148,16 +147,18 @@ export const authSlice = createSlice({
         },
       )
 
-      // PETS (Yanıtın { pets: Pet[] } şeklinde döndüğünü varsayıyoruz)
+      // ADD PET
       .addCase(
         addPet.fulfilled,
-        (state, { payload }: PayloadAction<{ pets: Pet[] }>) => {
+        (state, { payload }: PayloadAction<{ pets: PetType[] }>) => {
           state.pets = payload.pets;
         },
       )
+
+      // REMOVE PET
       .addCase(
         removePet.fulfilled,
-        (state, { payload }: PayloadAction<{ pets: Pet[] }>) => {
+        (state, { payload }: PayloadAction<{ pets: PetType[] }>) => {
           state.pets = payload.pets;
         },
       );

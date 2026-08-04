@@ -1,11 +1,10 @@
-import React from "react";
 import { useFriends } from "../../../hooks/useFriends";
-import type { FriendType } from "../../../types";
+import type { FriendItem } from "../../../types";
 import FriendsItem from "./FriendsItem/FriendsItem";
 import css from "./FriendsList.module.css";
 
-const FriendsList: React.FC = () => {
-  const { friends } = useFriends() as { friends: FriendType[] };
+const FriendsList = () => {
+  const { friends } = useFriends() as { friends: FriendItem[] };
 
   return (
     <ul className={css.cardsListContainer}>

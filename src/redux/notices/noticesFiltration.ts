@@ -1,14 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { petloveApi } from "../../services/api";
-import type { Notice, NoticeFiltersParams } from "../../types";
+import type { NoticeType, NoticeFiltersParams } from "../../types";
 
 export interface ExtendedFiltersParams extends NoticeFiltersParams {
   radioSearch?: "Cheap" | "Expensive" | "Popular" | "Unpopular";
 }
 
 interface FetchNoticesResponse {
-  results: Notice[];
+  results: NoticeType[];
   totalPages: number;
 }
 
@@ -53,7 +53,7 @@ export const fetchNotices = createAsyncThunk<
 
   try {
     const response = await petloveApi.get<{
-      results: Notice[];
+      results: NoticeType[];
       totalPages: number;
     }>("/notices", {
       params: queryParams,

@@ -14,11 +14,11 @@ interface OptionType {
   label: string;
 }
 
-const ByTypeSelect: React.FC<ByTypeSelectProps> = ({
+const ByTypeSelect = ({
   setByTypeQuery,
   byTypeQuery,
   setCurrentPage,
-}) => {
+}: ByTypeSelectProps) => {
   const { species } = useNotices() as { species?: string[] };
 
   const speciesData: OptionType[] = [

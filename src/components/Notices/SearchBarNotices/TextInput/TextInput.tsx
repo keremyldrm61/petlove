@@ -10,12 +10,12 @@ interface TextInputProps {
   setInputValue: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const TextInput: React.FC<TextInputProps> = ({
+const TextInput = ({
   setTextQuery,
   textQuery,
   inputValue,
   setInputValue,
-}) => {
+}: TextInputProps) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (inputValue.trim() !== "") {

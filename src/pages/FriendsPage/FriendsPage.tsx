@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../redux/store";
 import { useFriends } from "../../hooks/useFriends";
@@ -7,7 +7,7 @@ import FriendsList from "../../components/Friends/FriendsList/FriendsList";
 import FallbackLoader from "../../components/UI/FallbackLoader/FallbackLoader";
 import css from "./FriendsPage.module.css";
 
-const FriendsPage: React.FC = () => {
+const FriendsPage = () => {
   const dispatch = useDispatch<AppDispatch>();
   const { isLoadFriends } = useFriends();
 

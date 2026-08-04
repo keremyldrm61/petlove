@@ -41,7 +41,7 @@ export const profileSchema = yup.object().shape({
     .required("Email is required"),
   phone: yup
     .string()
-    .matches(phoneRegExp, "Invalid phone format (Must be +38...)")
+    .matches(phoneRegExp, "Invalid phone format (Must be +380...)")
     .notRequired(),
   avatar: yup
     .string()

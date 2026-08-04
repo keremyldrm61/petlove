@@ -7,7 +7,7 @@ import {
   fetchCategories,
   fetchGenders,
 } from "../../redux/notices/noticesOperations";
-import PetsList from "../../components/Notices/PetsList/PetsList";
+import NoticePetsList from "../../components/Notices/NoticePetsList/NoticePetsList";
 import FallbackLoader from "../../components/UI/FallbackLoader/FallbackLoader";
 import PaginationGeneral from "../../components/Pagination/Pagination";
 import css from "./NoticesPage.module.css";
@@ -33,7 +33,7 @@ const NoticesPage = () => {
         <FallbackLoader />
       ) : (
         <>
-          <PetsList />
+          <NoticePetsList />
           <PaginationGeneral
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}

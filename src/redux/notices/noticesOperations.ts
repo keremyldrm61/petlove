@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { AxiosError } from "axios";
 import { petloveApi } from "../../services/api";
-import type { Notice } from "../../types";
+import type { NoticeType } from "../../types";
 
 export interface CityLocation {
   _id: string;
@@ -76,30 +76,28 @@ export const fetchCities = createAsyncThunk<CityLocation[], string>(
   },
 );
 
-// ADD NOTICE TO FAVORITES
-export const AddToFavorites = createAsyncThunk<Notice, string>(
-  "notices/addFavorites",
-  async (id, thunkAPI) => {
-    try {
-      const response = await petloveApi.post<Notice>(
-        `/notices/favorites/add/${id}`,
-      );
-      return response.data;
-    } catch (error) {
-      const err = error as AxiosError<{ message?: string }>;
-      return thunkAPI.rejectWithValue(
-        err.response?.data?.message || err.message,
-      );
-    }
-  },
-);
+// ADD NOTICE TO FAVORITES (TİP GÜNCELLEMESİ)
+export const AddToFavorites = createAsyncThunk<
+  NoticeType | NoticeType[],
+  string
+>("notices/addFavorites", async (id, thunkAPI) => {
+  try {
+    const response = await petloveApi.post<NoticeType | NoticeType[]>(
+      `/notices/favorites/add/${id}`,
+    );
+    return response.data;
+  } catch (error) {
+    const err = error as AxiosError<{ message?: string }>;
+    return thunkAPI.rejectWithValue(err.response?.data?.message || err.message);
+  }
+});
 
 // REMOVE NOTICE FROM FAVORITES
-export const RemoveFromFavorites = createAsyncThunk<Notice, string>(
+export const RemoveFromFavorites = createAsyncThunk<NoticeType, string>(
   "notices/removeFavorites",
   async (id, thunkAPI) => {
     try {
-      const response = await petloveApi.delete<Notice>(
+      const response = await petloveApi.delete<NoticeType>(
         `/notices/favorites/remove/${id}`,
       );
       return response.data;

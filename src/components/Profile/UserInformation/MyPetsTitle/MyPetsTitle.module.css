@@ -1,0 +1,71 @@
+.titlePetsContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 40px;
+}
+
+.titlePetsContainer h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  color: var(--dark-light);
+  margin: 0;
+}
+
+.addPetLink {
+  height: 38px;
+  width: 103px;
+  background-color: var(--accent-color);
+  color: var(--white-color);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+  transition: var(
+    --hover-general,
+    background-color 250ms ease,
+    color 250ms ease
+  );
+}
+
+.addPetLink svg {
+  stroke: var(--white-color);
+  fill: none;
+  transition: var(--hover-general, stroke 250ms ease);
+}
+
+.addPetLink:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.addPetLink:hover svg {
+  stroke: var(--accent-color);
+}
+
+@media screen and (min-width: 768px) {
+  .titlePetsContainer h2 {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .addPetLink {
+    width: 118px;
+    height: 40px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .titlePetsContainer {
+    margin-top: 24px;
+  }
+}

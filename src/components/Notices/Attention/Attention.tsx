@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import imgDogModal from "../../../assets/images/modals/dog-modal.webp";
+import dogModalImg from "../../../assets/images/modals/dog-modal.webp";
 import ModalGeneral from "../../ModalGeneral/ModalGeneral";
 import css from "./Attention.module.css";
 
@@ -9,10 +9,7 @@ interface AttentionProps {
   showAttention: boolean;
 }
 
-const Attention: React.FC<AttentionProps> = ({
-  setShowAttention,
-  showAttention,
-}) => {
+const Attention = ({ setShowAttention, showAttention }: AttentionProps) => {
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -41,7 +38,7 @@ const Attention: React.FC<AttentionProps> = ({
     <ModalGeneral fn={() => setShowAttention(false)}>
       <div className={css.imgContainer}>
         <div>
-          <img src={imgDogModal} alt="Animated dog" />
+          <img src={dogModalImg} alt="Dog modal" />
         </div>
         <span>Attention</span>
         <p>

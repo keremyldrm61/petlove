@@ -1,14 +1,13 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import { workHours } from "../../../../utils/helpers";
-import type { FriendType } from "../../../../types";
+import type { FriendItem } from "../../../../types";
 import css from "./FriendsItem.module.css";
 
 interface FriendItemProps {
-  friend: FriendType;
+  friend: FriendItem;
 }
 
-const FriendsItem: React.FC<FriendItemProps> = ({ friend }) => {
+const FriendsItem = ({ friend }: FriendItemProps) => {
   const { address, addressUrl, email, imageUrl, phone, title, url, workDays } =
     friend;
   const workingHours = workHours(workDays);

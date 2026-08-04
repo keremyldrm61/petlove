@@ -1,0 +1,219 @@
+.cardContainer {
+  background-color: var(--white-color);
+  padding: 24px;
+  border-radius: 16px;
+  color: var(--dark-color);
+  list-style: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.imageAnimalContainer {
+  width: 287px;
+  height: 178px;
+  margin-bottom: 24px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.imageAnimalContainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
+}
+
+.titlePopularityBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.titlePopularityBox h2 {
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0;
+}
+
+.popularity {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  display: flex;
+  align-items: center;
+  column-gap: 4px;
+}
+
+.listInfo {
+  display: flex;
+  align-items: center;
+  column-gap: 14px;
+  margin-top: 8px;
+  margin-bottom: 16px;
+  padding: 0;
+  list-style: none;
+}
+
+.infoItem {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  row-gap: 2px;
+}
+
+.infoLabel {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 1.4;
+  letter-spacing: -0.02em;
+  color: var(--placeholder-color);
+  margin: 0;
+}
+
+.infoValue {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.17;
+  letter-spacing: -0.02em;
+  color: var(--dark-color);
+  text-transform: capitalize;
+  display: block;
+}
+
+.infoItem:first-of-type .infoLabel {
+  max-width: 54px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.infoItem:first-of-type .infoValue {
+  max-width: 54px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.commentText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.02em;
+  margin: 0;
+}
+
+.buttonsCardBox {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 24px;
+}
+
+.buttonLearnMore {
+  outline: none;
+  color: var(--white-color);
+  background-color: var(--accent-color);
+  border: none;
+  border-radius: 30px;
+  padding: 14px;
+  width: 231px;
+  height: 46px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  transition: var(--hover-general, background-color 250ms ease);
+  cursor: pointer;
+}
+
+.buttonLearnMore:hover {
+  background-color: var(--hover-color);
+  color: var(--hover-accent-color);
+}
+
+.btnRemove {
+  width: 46px;
+  height: 46px;
+  outline: none;
+  border: none;
+  background-color: var(--accent-light);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--hover-general, background-color 250ms ease);
+  cursor: pointer;
+}
+
+.btnRemove svg {
+  fill: none;
+  stroke: var(--accent-color);
+}
+
+.btnRemove:hover {
+  background-color: var(--hover-color);
+}
+
+@media screen and (min-width: 768px) {
+  .cardContainer {
+    width: 342px;
+    height: 388px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .imageAnimalContainer {
+    width: 314px;
+    height: 162px;
+    margin-bottom: 14px;
+  }
+
+  .titlePopularityBox h2 {
+    font-size: 18px;
+    line-height: 1.33;
+  }
+
+  .popularity {
+    line-height: 1.43;
+  }
+
+  .buttonsCardBox {
+    column-gap: 10px;
+  }
+
+  .buttonLearnMore {
+    width: 260px;
+    height: 44px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+
+  .btnRemove {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .cardContainer {
+    width: 320px;
+    justify-content: space-between;
+  }
+
+  .imageAnimalContainer {
+    width: 292px;
+  }
+
+  .buttonsCardBox {
+    column-gap: 4px;
+  }
+
+  .buttonLearnMore {
+    width: 238px;
+  }
+}

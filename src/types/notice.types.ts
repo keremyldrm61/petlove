@@ -1,16 +1,16 @@
 // İlan filtreleme (NoticesFilters), detaylar (ModalNotice) ve liste ögeleri için uygun veri tipleri
 
-export interface Notice {
+export interface NoticeType {
   _id: string;
   imgURL: string;
-  name: string;
   title: string;
-  birthday: string;
-  sex: string;
-  species: string;
   popularity: number;
   comment: string;
   category: string;
+  name: string;
+  birthday: string;
+  sex: string;
+  species: string;
 }
 
 export interface NoticeFiltersParams {

@@ -10,11 +10,11 @@ interface RadioSectionProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const RadioSection: React.FC<RadioSectionProps> = ({
+const RadioSection = ({
   setRadioSearch,
   radioSearch,
   setCurrentPage,
-}) => {
+}: RadioSectionProps) => {
   const handleClick = (value: RadioOption) => {
     setRadioSearch(value);
     setCurrentPage(1);

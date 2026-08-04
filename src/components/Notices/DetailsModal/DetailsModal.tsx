@@ -1,40 +1,28 @@
-import React, { useEffect, type Dispatch, type SetStateAction } from "react";
+import { useEffect, type Dispatch, type SetStateAction } from "react";
+import type { NoticeType } from "../../../types";
 import ModalGeneral from "../../ModalGeneral/ModalGeneral";
 import Rating from "./Rating/Rating";
 import Info from "./Info/Info";
 import Buttons from "./Buttons/Buttons";
 import css from "./DetailsModal.module.css";
 
-export interface NoticeDetails {
-  _id: string;
-  imgURL: string;
-  title: string;
-  popularity: number;
-  comment: string;
-  category: string;
-  name: string;
-  birthday: string;
-  sex: string;
-  species: string;
-}
-
 interface DetailsModalProps {
   setShowDetails: Dispatch<SetStateAction<boolean>>;
-  notice: NoticeDetails;
+  notice: NoticeType;
   showDetails: boolean;
   isFavorite: boolean;
   setIsFavorite: Dispatch<SetStateAction<boolean>>;
   setShowFirstNotification: Dispatch<SetStateAction<boolean>>;
 }
 
-const DetailsModal: React.FC<DetailsModalProps> = ({
+const DetailsModal = ({
   setShowDetails,
   notice,
   showDetails,
   isFavorite,
   setIsFavorite,
   setShowFirstNotification,
-}) => {
+}: DetailsModalProps) => {
   const { imgURL, title, popularity, comment, category, _id } = notice;
 
   useEffect(() => {

@@ -9,10 +9,10 @@ interface FirstItemNotificationProps {
   showFirstNotification: boolean;
 }
 
-const FirstItemNotification: React.FC<FirstItemNotificationProps> = ({
+const FirstItemNotification = ({
   setShowFirstNotification,
   showFirstNotification,
-}) => {
+}: FirstItemNotificationProps) => {
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
       if (e.key === "Escape") {
@@ -41,7 +41,7 @@ const FirstItemNotification: React.FC<FirstItemNotificationProps> = ({
     <ModalGeneral fn={() => setShowFirstNotification(false)}>
       <div className={css.imgContainer}>
         <div>
-          <img src={catModalImg} alt="Animated white-orange cat" />
+          <img src={catModalImg} alt="Cat modal" />
         </div>
         <p>Congrats</p>
       </div>

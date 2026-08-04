@@ -14,11 +14,11 @@ interface OptionType {
   label: string;
 }
 
-const ByGenderSelect: React.FC<ByGenderSelectProps> = ({
+const ByGenderSelect = ({
   setGenderQuery,
   genderQuery,
   setCurrentPage,
-}) => {
+}: ByGenderSelectProps) => {
   const { genders } = useNotices() as { genders?: string[] };
 
   const gendersData: OptionType[] = [

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../redux/store";
 import { useNotices } from "../../../hooks/useNotices";
@@ -6,14 +6,14 @@ import {
   AddToFavorites,
   RemoveFromFavorites,
 } from "../../../redux/notices/noticesOperations";
-import type { Notice } from "../../../types";
+import type { NoticeType } from "../../../types";
 import Card from "../Card/Card";
 import Attention from "../Attention/Attention";
 import FirstItemNotification from "../FirstItemNotification/FirstItemNotification";
-import css from "./PetsList.module.css";
+import css from "./NoticePetsList.module.css";
 
-const PetsList: React.FC = () => {
-  const { notices } = useNotices() as { notices?: Notice[] };
+const NoticePetsList = () => {
+  const { notices } = useNotices() as { notices?: NoticeType[] };
   const dispatch = useDispatch<AppDispatch>();
   const [showAttention, setShowAttention] = useState<boolean>(false);
   const [showFirstNotification, setShowFirstNotification] =
@@ -62,4 +62,4 @@ const PetsList: React.FC = () => {
   );
 };
 
-export default PetsList;
+export default NoticePetsList;

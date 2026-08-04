@@ -1,9 +1,9 @@
-import React, { type Dispatch, type SetStateAction } from "react";
+import type { Dispatch, SetStateAction } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../../redux/store";
 import { useAuth } from "../../../../hooks/useAuth";
-import { type NoticeDetails } from "../DetailsModal";
+import type { NoticeType } from "../../../../types";
 import {
   AddToFavorites,
   RemoveFromFavorites,
@@ -18,15 +18,15 @@ interface ButtonsProps {
   setShowFirstNotification: Dispatch<SetStateAction<boolean>>;
 }
 
-const Buttons: React.FC<ButtonsProps> = ({
+const Buttons = ({
   isFavorite,
   id,
   setIsFavorite,
   setShowFirstNotification,
-}) => {
+}: ButtonsProps) => {
   const dispatch = useDispatch<AppDispatch>();
   const { favoritesNotices } = useAuth() as {
-    favoritesNotices?: NoticeDetails[];
+    favoritesNotices?: NoticeType[];
   };
 
   const handleAddFavorites = () => {

@@ -22,11 +22,11 @@ interface OptionType {
   label: string;
 }
 
-const SearchLocation: React.FC<SearchLocationProps> = ({
+const SearchLocation = ({
   setLocationQuery,
   locationQuery,
   setCurrentPage,
-}) => {
+}: SearchLocationProps) => {
   const [inputValue, setInputValue] = useState<string>("");
   const cities = useSelector((state: RootState) => state.notices.cities);
   const dispatch = useDispatch<AppDispatch>();

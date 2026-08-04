@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../redux/store";
-import { useLocation } from "react-router-dom";
 import { useAuth } from "../../../hooks/useAuth";
-import { type Notice } from "../../../types";
+import { viewedPet } from "../../../redux/auth/authOperations";
+import type { NoticeType } from "../../../types";
 import { formatBirthday } from "../../../utils/helpers";
 import DetailsModal from "../DetailsModal/DetailsModal";
-import { viewedPet } from "../../../redux/auth/authOperations";
 import { Icon } from "../../../shared/Icon";
 import css from "./Card.module.css";
 
 interface CardProps {
-  notice: Notice;
+  notice: NoticeType;
   setShowAttention: React.Dispatch<React.SetStateAction<boolean>>;
   setShowFirstNotification: React.Dispatch<React.SetStateAction<boolean>>;
   onAddFavorites: (id: string) => void;
   onRemoveFavorites: (id: string) => void;
 }
 
-const Card: React.FC<CardProps> = ({
+const Card = ({
   notice,
   setShowAttention,
   setShowFirstNotification,
   onAddFavorites,
   onRemoveFavorites,
-}) => {
+}: CardProps) => {
   const location = useLocation();
   const dispatch = useDispatch<AppDispatch>();
   const [showDetails, setShowDetails] = useState<boolean>(false);
@@ -44,10 +44,7 @@ const Card: React.FC<CardProps> = ({
     _id,
   } = notice;
 
-  const { isLoggedIn, favoritesNotices } = useAuth() as {
-    isLoggedIn: boolean;
-    favoritesNotices?: Notice[];
-  };
+  const { isLoggedIn, favoritesNotices } = useAuth();
 
   const [isFavorite, setIsFavorite] = useState<boolean>(
     !!favoritesNotices?.find((fav) => fav._id === _id),
@@ -73,7 +70,7 @@ const Card: React.FC<CardProps> = ({
     if (!isLoggedIn) {
       setShowAttention(true);
     } else {
-      if (favoritesNotices?.length === 0) {
+      if (!favoritesNotices || favoritesNotices.length === 0) {
         setShowFirstNotification(true);
       }
       onAddFavorites(_id);

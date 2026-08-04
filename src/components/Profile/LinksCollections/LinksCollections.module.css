@@ -1,0 +1,49 @@
+.navContainer {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  column-gap: 10px;
+  margin-top: 40px;
+  animation: appear 1000ms ease 1;
+}
+
+.link {
+  display: inline-block;
+  background-color: var(--white-color);
+  color: var(--dark-color);
+  border-radius: 30px;
+  padding: 12px;
+  width: 123px;
+  height: 42px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  text-align: center;
+  text-decoration: none;
+  transition: var(
+    --hover-general,
+    background-color 250ms ease,
+    color 250ms ease
+  );
+}
+
+.link:hover {
+  background-color: var(--hover-color);
+  color: var(--accent-color);
+}
+
+.active {
+  background-color: var(--accent-color);
+  color: var(--white-color);
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    width: 142px;
+    height: 48px;
+    padding: 14px;
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}

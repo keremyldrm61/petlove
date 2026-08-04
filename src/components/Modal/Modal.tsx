@@ -9,7 +9,7 @@ interface Props {
 }
 
 const Modal = ({ children, setIsShowMobileMenu }: Props) => {
-  const targetElement = document.getElementById("root") || document.body;
+  const modalRoot = document?.getElementById("modal-root");
   const backdropRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
 
@@ -20,6 +20,8 @@ const Modal = ({ children, setIsShowMobileMenu }: Props) => {
       setIsShowMobileMenu?.(false);
     }
   };
+
+  if (!modalRoot) return null;
 
   return createPortal(
     <div
@@ -35,7 +37,7 @@ const Modal = ({ children, setIsShowMobileMenu }: Props) => {
         {children}
       </div>
     </div>,
-    targetElement,
+    modalRoot,
   );
 };
 

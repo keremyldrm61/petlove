@@ -5,7 +5,7 @@ export interface WorkDay {
   to: string;
 }
 
-export interface FriendType {
+export interface FriendItem {
   _id: string;
   address: string | null;
   addressUrl: string | null;

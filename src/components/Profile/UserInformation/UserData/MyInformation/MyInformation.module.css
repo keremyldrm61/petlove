@@ -1,0 +1,77 @@
+.myInfoContainer {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 28px;
+  animation: appear 1000ms ease 1;
+}
+
+.myInfoContainer h1 {
+  color: var(--dark-light);
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 1.25;
+  margin: 0 0 10px 0;
+}
+
+.infoList {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.infoItem {
+  height: 42px;
+  padding: 12px;
+  border-radius: 30px;
+  border: 1px solid var(--link-gray);
+  display: flex;
+  align-items: center;
+}
+
+.infoText {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.29;
+  letter-spacing: -0.03em;
+  color: var(--dark-color);
+  margin: 0;
+}
+
+@media screen and (min-width: 768px) {
+  .myInfoContainer h1 {
+    font-size: 18px;
+    line-height: 1.33;
+    margin-bottom: 14px;
+  }
+
+  .infoList {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    row-gap: 14px;
+    column-gap: 14px;
+  }
+
+  .infoItem {
+    width: 305px;
+    height: 52px;
+    padding: 16px;
+  }
+
+  .infoText {
+    font-size: 16px;
+    line-height: 1.25;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .infoItem {
+    width: 100%;
+  }
+}

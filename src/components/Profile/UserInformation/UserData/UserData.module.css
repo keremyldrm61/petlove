@@ -1,0 +1,62 @@
+.containerBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 8px;
+}
+
+.avatarBox {
+  overflow: hidden;
+  width: 94px;
+  height: 94px;
+  border-radius: 50%;
+  background-color: var(--accent-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: scalingItem 1000ms ease 1;
+}
+
+.avatarBox svg {
+  fill: var(--accent-color);
+  stroke: var(--accent-color);
+  stroke-width: 6px;
+}
+
+.avatarBox img {
+  min-width: 100%;
+  min-height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.uploadPhotoButton {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: var(--dark-color);
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.33;
+  letter-spacing: -0.02em;
+  text-decoration: underline;
+  text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 768px) {
+  .avatarBox {
+    width: 110px;
+    height: 110px;
+  }
+
+  .avatarBox svg {
+    width: 50px;
+    height: 50px;
+  }
+
+  .uploadPhotoButton {
+    font-size: 14px;
+    line-height: 1.29;
+  }
+}

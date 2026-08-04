@@ -1,12 +1,11 @@
-import React from "react";
-import { type NoticeDetails } from "../DetailsModal";
+import type { NoticeType } from "../../../../types";
 import css from "./Info.module.css";
 
 interface InfoProps {
-  notice: Pick<NoticeDetails, "name" | "birthday" | "sex" | "species">;
+  notice: Pick<NoticeType, "name" | "birthday" | "sex" | "species">;
 }
 
-const Info: React.FC<InfoProps> = ({ notice }) => {
+const Info = ({ notice }: InfoProps) => {
   const { name, birthday, sex, species } = notice;
   const date = new Date(birthday);
 
