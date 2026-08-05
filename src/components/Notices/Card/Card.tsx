@@ -18,9 +18,12 @@ interface CardProps {
   onRemoveFavorites: (id: string) => void;
 }
 
+// Favori elemanları backend yapısına göre hem string ID hem de obje olarak gelebilir
+type FavoriteItem = NoticeType | string;
+
 interface AuthContextData {
-  favoritesNotices?: NoticeType[];
-  noticesFavorites?: NoticeType[];
+  favoritesNotices?: FavoriteItem[];
+  noticesFavorites?: FavoriteItem[];
   isLoggedIn: boolean;
 }
 
@@ -50,13 +53,16 @@ const Card = ({
     _id,
   } = notice;
 
-  const auth = useAuth() as AuthContextData;
+  const auth = useAuth() as unknown as AuthContextData;
   const isLoggedIn = auth.isLoggedIn;
 
-  // İsim uyuşmazlığını önlemek için her ihtimale karşı iki property'yi de yakalıyoruz
-  const favorites: NoticeType[] =
+  const favorites: FavoriteItem[] =
     auth.favoritesNotices || auth.noticesFavorites || [];
-  const isFavorite = !!favorites.some((fav) => fav._id === _id);
+
+  // Polimorfik kontrol: Eleman string ID de olsa obje de olsa hatasız çalışır
+  const isFavorite = favorites.some((fav) =>
+    typeof fav === "string" ? fav === _id : fav?._id === _id,
+  );
 
   const formattedDate = formatBirthday(birthday);
 
@@ -75,16 +81,18 @@ const Card = ({
   }, [_id, isViewedPage, showDetails, dispatch]);
 
   const handleAddFavorites = (e: React.MouseEvent<HTMLButtonElement>) => {
-    e.stopPropagation(); // Butona tıklandığında olayın kart tıklamasına yayılmasını engelliyoruz
+    e.stopPropagation();
 
     if (!isLoggedIn) {
       setShowAttention(true);
       return;
     }
 
-    if (favorites.length === 0) {
+    // Favori dizisi boşsa veya henüz yüklenmediyse Congrats modalını tetikle
+    if (!favorites || favorites.length === 0) {
       setShowFirstNotification(true);
     }
+
     onAddFavorites(_id);
   };
 

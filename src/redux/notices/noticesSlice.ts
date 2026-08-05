@@ -5,8 +5,6 @@ import {
   fetchGenders,
   fetchSpecies,
   fetchCities,
-  AddToFavorites,
-  RemoveFromFavorites,
   type CityLocation,
 } from "./noticesOperations";
 import { fetchNotices } from "./noticesFiltration";
@@ -64,8 +62,6 @@ export const noticesSlice = createSlice({
           fetchSpecies.pending,
           fetchCities.pending,
           fetchNotices.pending,
-          AddToFavorites.pending,
-          RemoveFromFavorites.pending,
         ),
         (state) => {
           state.isLoading = true;
@@ -79,8 +75,6 @@ export const noticesSlice = createSlice({
           fetchSpecies.fulfilled,
           fetchCities.fulfilled,
           fetchNotices.fulfilled,
-          AddToFavorites.fulfilled,
-          RemoveFromFavorites.fulfilled,
         ),
         (state) => {
           state.isLoading = false;
@@ -94,8 +88,6 @@ export const noticesSlice = createSlice({
           fetchSpecies.rejected,
           fetchCities.rejected,
           fetchNotices.rejected,
-          AddToFavorites.rejected,
-          RemoveFromFavorites.rejected,
         ),
         (state) => {
           state.isLoading = false;
