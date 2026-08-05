@@ -26,6 +26,8 @@ export const register = createAsyncThunk<AuthResponse, RegisterPayload>(
       setAuthHeader(res.data.token);
       localStorage.setItem("token", res.data.token);
 
+      await thunkAPI.dispatch(refreshUser());
+
       // Veri yapısını emniyete alıyoruz (Payload Normalization)
       const user = res.data.user || {
         _id: (res.data as unknown as { _id?: string })._id || null,
@@ -58,6 +60,8 @@ export const logIn = createAsyncThunk<AuthResponse, LoginPayload>(
       );
       setAuthHeader(res.data.token);
       localStorage.setItem("token", res.data.token);
+
+      await thunkAPI.dispatch(refreshUser());
 
       // Güvenli veri okuma: res.data.user yoksa üst seviye objeden okur
       const user = res.data.user || {

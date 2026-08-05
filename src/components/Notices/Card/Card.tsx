@@ -18,6 +18,12 @@ interface CardProps {
   onRemoveFavorites: (id: string) => void;
 }
 
+interface AuthContextData {
+  favoritesNotices?: NoticeType[];
+  noticesFavorites?: NoticeType[];
+  isLoggedIn: boolean;
+}
+
 const Card = ({
   notice,
   setShowAttention,
@@ -44,9 +50,13 @@ const Card = ({
     _id,
   } = notice;
 
-  const { isLoggedIn, favoritesNotices } = useAuth();
+  const auth = useAuth() as AuthContextData;
+  const isLoggedIn = auth.isLoggedIn;
 
-  const isFavorite = !!favoritesNotices?.some((fav) => fav._id === _id);
+  // İsim uyuşmazlığını önlemek için her ihtimale karşı iki property'yi de yakalıyoruz
+  const favorites: NoticeType[] =
+    auth.favoritesNotices || auth.noticesFavorites || [];
+  const isFavorite = !!favorites.some((fav) => fav._id === _id);
 
   const formattedDate = formatBirthday(birthday);
 
@@ -64,19 +74,22 @@ const Card = ({
     }
   }, [_id, isViewedPage, showDetails, dispatch]);
 
-  const handleAddFavorites = () => {
+  const handleAddFavorites = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation(); // Butona tıklandığında olayın kart tıklamasına yayılmasını engelliyoruz
+
     if (!isLoggedIn) {
       setShowAttention(true);
       return;
     }
 
-    if (!favoritesNotices || favoritesNotices.length === 0) {
+    if (favorites.length === 0) {
       setShowFirstNotification(true);
     }
     onAddFavorites(_id);
   };
 
-  const handleRemoveFavorites = () => {
+  const handleRemoveFavorites = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
     onRemoveFavorites(_id);
   };
 

@@ -53,7 +53,6 @@ const FavoriteCard = ({
           notice={notice}
           showDetails={showDetails}
           isFavorite={isFavorite}
-          setIsFavorite={() => {}}
           setShowFirstNotification={() => {}}
         />
       )}

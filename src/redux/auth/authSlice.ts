@@ -61,6 +61,14 @@ export const authSlice = createSlice({
           state.user.name = payload.user.name;
           state.user.email = payload.user.email;
           state.token = payload.token;
+
+          const fullUser = payload.user as unknown as User;
+
+          state.noticesFavorites =
+            fullUser.noticesFavorites || state.noticesFavorites;
+          state.noticesViewed = fullUser.noticesViewed || state.noticesViewed;
+          state.pets = fullUser.pets || state.pets;
+
           state.isLoggedIn = true;
           state.isLoading = false;
         },
@@ -80,6 +88,14 @@ export const authSlice = createSlice({
           state.user.name = payload.user.name;
           state.user.email = payload.user.email;
           state.token = payload.token;
+
+          const fullUser = payload.user as unknown as User;
+
+          state.noticesFavorites =
+            fullUser.noticesFavorites || state.noticesFavorites;
+          state.noticesViewed = fullUser.noticesViewed || state.noticesViewed;
+          state.pets = fullUser.pets || state.pets;
+
           state.isLoggedIn = true;
           state.isLoading = false;
         },

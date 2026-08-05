@@ -7,11 +7,18 @@ import FavoriteCard from "./FavoriteCard/FavoriteCard";
 import NoCollectionText from "../NoCollectionText/NoCollectionText";
 import css from "./Favorites.module.css";
 
+interface AuthContextData {
+  favoritesNotices?: NoticeType[];
+  noticesFavorites?: NoticeType[];
+}
+
 const Favorites = () => {
-  const { favoritesNotices } = useAuth() as { favoritesNotices: NoticeType[] };
+  const auth = useAuth() as AuthContextData;
   const dispatch = useDispatch<AppDispatch>();
 
-  const favorites = favoritesNotices || [];
+  // Hem useAuth'dan gelen olası yanlış isimlendirmeyi hem de Redux asıl isimlendirmesini yakalıyoruz
+  const favorites: NoticeType[] =
+    auth.favoritesNotices || auth.noticesFavorites || [];
 
   const handleRemoveFavorites = (id: string) => {
     dispatch(RemoveFromFavorites(id));
