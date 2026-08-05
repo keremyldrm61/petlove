@@ -13,15 +13,13 @@ import css from "./Buttons.module.css";
 
 interface ButtonsProps {
   isFavorite: boolean;
-  id: string;
-  setIsFavorite: Dispatch<SetStateAction<boolean>>;
+  notice: NoticeType;
   setShowFirstNotification: Dispatch<SetStateAction<boolean>>;
 }
 
 const Buttons = ({
   isFavorite,
-  id,
-  setIsFavorite,
+  notice,
   setShowFirstNotification,
 }: ButtonsProps) => {
   const dispatch = useDispatch<AppDispatch>();
@@ -30,16 +28,16 @@ const Buttons = ({
   };
 
   const handleAddFavorites = () => {
-    if (favoritesNotices?.length === 0) {
+    if (!favoritesNotices || favoritesNotices.length === 0) {
       setShowFirstNotification(true);
     }
-    dispatch(AddToFavorites(id));
-    setIsFavorite(true);
+    // ARTIK HATA YOK: Thunk'ın beklediği gibi tam objeyi gönderiyoruz!
+    dispatch(AddToFavorites(notice));
   };
 
   const handleRemoveFavorites = () => {
-    dispatch(RemoveFromFavorites(id));
-    setIsFavorite(false);
+    // Silme işlemi operasyonlarda string bekliyor, bu yüzden ID yolluyoruz
+    dispatch(RemoveFromFavorites(notice._id));
   };
 
   return (

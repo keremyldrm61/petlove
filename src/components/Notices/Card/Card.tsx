@@ -46,9 +46,7 @@ const Card = ({
 
   const { isLoggedIn, favoritesNotices } = useAuth();
 
-  const [isFavorite, setIsFavorite] = useState<boolean>(
-    !!favoritesNotices?.find((fav) => fav._id === _id),
-  );
+  const isFavorite = !!favoritesNotices?.some((fav) => fav._id === _id);
 
   const formattedDate = formatBirthday(birthday);
 
@@ -69,18 +67,17 @@ const Card = ({
   const handleAddFavorites = () => {
     if (!isLoggedIn) {
       setShowAttention(true);
-    } else {
-      if (!favoritesNotices || favoritesNotices.length === 0) {
-        setShowFirstNotification(true);
-      }
-      onAddFavorites(_id);
-      setIsFavorite(true);
+      return;
     }
+
+    if (!favoritesNotices || favoritesNotices.length === 0) {
+      setShowFirstNotification(true);
+    }
+    onAddFavorites(_id);
   };
 
   const handleRemoveFavorites = () => {
     onRemoveFavorites(_id);
-    setIsFavorite(false);
   };
 
   const handleLearnMore = () =>
@@ -94,7 +91,6 @@ const Card = ({
           notice={notice}
           showDetails={showDetails}
           isFavorite={isFavorite}
-          setIsFavorite={setIsFavorite}
           setShowFirstNotification={setShowFirstNotification}
         />
       )}

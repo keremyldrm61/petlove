@@ -77,20 +77,20 @@ export const fetchCities = createAsyncThunk<CityLocation[], string>(
 );
 
 // ADD NOTICE TO FAVORITES (TİP GÜNCELLEMESİ)
-export const AddToFavorites = createAsyncThunk<
-  NoticeType | NoticeType[],
-  string
->("notices/addFavorites", async (id, thunkAPI) => {
-  try {
-    const response = await petloveApi.post<NoticeType | NoticeType[]>(
-      `/notices/favorites/add/${id}`,
-    );
-    return response.data;
-  } catch (error) {
-    const err = error as AxiosError<{ message?: string }>;
-    return thunkAPI.rejectWithValue(err.response?.data?.message || err.message);
-  }
-});
+export const AddToFavorites = createAsyncThunk<NoticeType, NoticeType>(
+  "notices/addFavorites",
+  async (notice, thunkAPI) => {
+    try {
+      await petloveApi.post(`/notices/favorites/add/${notice._id}`);
+      return notice as NoticeType;
+    } catch (error) {
+      const err = error as AxiosError<{ message?: string }>;
+      return thunkAPI.rejectWithValue(
+        err.response?.data?.message || err.message,
+      );
+    }
+  },
+);
 
 // REMOVE NOTICE FROM FAVORITES
 export const RemoveFromFavorites = createAsyncThunk<NoticeType, string>(

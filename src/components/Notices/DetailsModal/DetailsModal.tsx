@@ -11,7 +11,6 @@ interface DetailsModalProps {
   notice: NoticeType;
   showDetails: boolean;
   isFavorite: boolean;
-  setIsFavorite: Dispatch<SetStateAction<boolean>>;
   setShowFirstNotification: Dispatch<SetStateAction<boolean>>;
 }
 
@@ -20,10 +19,9 @@ const DetailsModal = ({
   notice,
   showDetails,
   isFavorite,
-  setIsFavorite,
   setShowFirstNotification,
 }: DetailsModalProps) => {
-  const { imgURL, title, popularity, comment, category, _id } = notice;
+  const { imgURL, title, popularity, comment, category } = notice;
 
   useEffect(() => {
     const handleKeyPress = (e: KeyboardEvent) => {
@@ -62,8 +60,7 @@ const DetailsModal = ({
         <p>{comment}</p>
         <Buttons
           isFavorite={isFavorite}
-          id={_id}
-          setIsFavorite={setIsFavorite}
+          notice={notice}
           setShowFirstNotification={setShowFirstNotification}
         />
       </div>

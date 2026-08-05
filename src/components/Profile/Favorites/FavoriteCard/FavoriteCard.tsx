@@ -30,9 +30,7 @@ const FavoriteCard = ({
     _id,
   } = notice;
 
-  const [isFavorite, setIsFavorite] = useState(
-    !!favorites?.find((fav) => (fav._id === _id ? true : false)),
-  );
+  const isFavorite = !!favorites?.find((fav) => fav._id === _id);
 
   const formattedDate = formatBirthday(birthday);
 
@@ -55,7 +53,7 @@ const FavoriteCard = ({
           notice={notice}
           showDetails={showDetails}
           isFavorite={isFavorite}
-          setIsFavorite={setIsFavorite}
+          setIsFavorite={() => {}}
           setShowFirstNotification={() => {}}
         />
       )}

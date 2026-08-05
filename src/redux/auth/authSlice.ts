@@ -8,6 +8,10 @@ import {
   addPet,
   removePet,
 } from "./authOperations";
+import {
+  AddToFavorites,
+  RemoveFromFavorites,
+} from "../notices/noticesOperations";
 import type { User, PetType, NoticeType, AuthResponse } from "../../types";
 
 export interface AuthUser {
@@ -161,7 +165,28 @@ export const authSlice = createSlice({
         (state, { payload }: PayloadAction<{ pets: PetType[] }>) => {
           state.pets = payload.pets;
         },
-      );
+      )
+
+      // ADD TO FAVORITES
+      .addCase(AddToFavorites.fulfilled, (state, action) => {
+        const notice = action.payload;
+
+        // Eğer state'te (favorilerde) zaten yoksa ekle (güvenlik kontrolü)
+        const isExist = state.noticesFavorites.some(
+          (fav) => fav._id === notice._id,
+        );
+        if (!isExist && notice._id) {
+          state.noticesFavorites.push(notice);
+        }
+      })
+
+      // REMOVE FROM FAVORITES
+      .addCase(RemoveFromFavorites.fulfilled, (state, action) => {
+        // action.meta.arg bize silmek için gönderdiğimiz id'yi verir. State'i anında filtreleyip güncelliyoruz.
+        state.noticesFavorites = state.noticesFavorites.filter(
+          (notice) => notice._id !== action.meta.arg,
+        );
+      });
   },
 });
 

@@ -20,7 +20,11 @@ const NoticePetsList = () => {
     useState<boolean>(false);
 
   const handleAddFavorites = (id: string) => {
-    dispatch(AddToFavorites(id));
+    const fullNotice = notices?.find((n) => n._id === id);
+
+    if (fullNotice) {
+      dispatch(AddToFavorites(fullNotice));
+    }
   };
 
   const handleRemoveFavorites = (id: string) => {
