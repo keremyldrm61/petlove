@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import UserProfileBtn from "../UserProfileBtn/UserProfileBtn";
+import UserProfileButton from "../UserProfileButton/UserProfileButton";
 import { useAuth } from "../../hooks/useAuth";
 import Logo from "./Logo/Logo";
 import BurgerButton from "./BurgerButton/BurgerButton";
@@ -43,7 +43,7 @@ const Header = () => {
             </div>
           )}
 
-          {isLoggedIn && <UserProfileBtn isHomepage={isHomepage} />}
+          {isLoggedIn && <UserProfileButton isHomepage={isHomepage} />}
           <BurgerButton isHomepage={isHomepage} />
         </div>
       </div>

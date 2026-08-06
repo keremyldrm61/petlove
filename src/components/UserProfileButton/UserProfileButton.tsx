@@ -1,13 +1,13 @@
 import { useAuth } from "../../hooks/useAuth";
 import { Icon } from "../../shared/Icon";
 import { Link } from "react-router-dom";
-import css from "./UserProfileBtn.module.css";
+import css from "./UserProfileButton.module.css";
 
 interface Props {
   isHomepage: boolean;
 }
 
-const UserProfileBtn = ({ isHomepage }: Props) => {
+const UserProfileButton = ({ isHomepage }: Props) => {
   const { user } = useAuth();
 
   return (
@@ -29,4 +29,4 @@ const UserProfileBtn = ({ isHomepage }: Props) => {
   );
 };
 
-export default UserProfileBtn;
+export default UserProfileButton;
