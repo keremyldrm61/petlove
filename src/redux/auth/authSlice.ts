@@ -7,6 +7,7 @@ import {
   editUser,
   addPet,
   removePet,
+  viewedPet,
 } from "./authOperations";
 import {
   AddToFavorites,
@@ -202,6 +203,22 @@ export const authSlice = createSlice({
         state.noticesFavorites = state.noticesFavorites.filter(
           (notice) => notice._id !== action.meta.arg,
         );
+      })
+
+      // VIEWED PET
+      .addCase(viewedPet.fulfilled, (state, action) => {
+        const notice = action.payload;
+
+        // İlanın daha önce görüntülenenlere eklenip eklenmediğini kontrol et (Dublicate önleme)
+        const isExist = state.noticesViewed.some(
+          (viewed) => viewed._id === notice._id,
+        );
+
+        // Eğer listede yoksa Redux state'ine anında ekle
+        if (!isExist && notice._id) {
+          // Eğer en son görüntülenenin en üstte olmasını istiyorsak push yerine unshift kullanabiliriz:
+          state.noticesViewed.unshift(notice);
+        }
       });
   },
 });

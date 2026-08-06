@@ -38,9 +38,9 @@ const CreationForm = () => {
   });
 
   const onSubmit: SubmitHandler<AddPetFormValues> = (data) => {
-    // AddPetPayload tipi 'imgUrl' beklediği için imgURL alanını eşitliyoruz
+    // AddPetPayload tipi 'imgURL' beklediği için imgURL alanını eşitliyoruz
     const { imgURL, ...rest } = data;
-    dispatch(addPet({ ...rest, imgUrl: imgURL }));
+    dispatch(addPet({ ...rest, imgURL: imgURL }));
     navigate("/profile");
   };
 

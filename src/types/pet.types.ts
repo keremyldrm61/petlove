@@ -1,4 +1,4 @@
-// AddPetForm sayfasındaki alanlar (title, name, birthday, species, sex, imgUrl) için uygun veri tipleri
+// AddPetForm sayfasındaki alanlar (title, name, birthday, species, sex, imgURL) için uygun veri tipleri
 
 export interface PetType {
   _id: string;
@@ -16,5 +16,5 @@ export interface AddPetPayload {
   birthday: string;
   species: string;
   sex: string;
-  imgUrl: string;
+  imgURL: string;
 }

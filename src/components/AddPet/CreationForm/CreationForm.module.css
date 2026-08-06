@@ -149,8 +149,8 @@
 
 .label svg {
   position: absolute;
-  top: 0px;
-  right: 18px;
+  top: 2px;
+  right: 15px;
   pointer-events: none;
 }
 
@@ -166,7 +166,7 @@
 
 .addAvatarInput::before {
   content: "Upload photo";
-  width: 112px;
+  width: 122px;
   height: 42px;
   border-radius: 30px;
   background-color: var(--accent-light);
@@ -245,14 +245,13 @@
   }
 
   .label svg {
-    right: 0px;
+    right: 0;
   }
 
   .addAvatarInput::before {
-    width: 122px;
+    width: 146px;
     font-size: 14px;
     line-height: 1.29;
-    padding-left: 18px;
   }
 }
 
